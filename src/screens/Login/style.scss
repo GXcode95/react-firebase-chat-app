@@ -1,0 +1,57 @@
+@import "styles/variables";
+
+.Login {
+  
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 100px;
+  box-shadow: 1px 2px 10px $color-4;
+  padding: 10px 20px;
+  border-radius: 5px;
+
+  h3 {
+    text-align: center;
+    font-size: 20px;
+    color: $color-4;
+  }
+
+  form {
+    margin-top: 30px;
+  }
+
+  .input_container {
+    margin-top: 20px;
+    
+    label { color: $color-2; }
+    input {
+      width: 100%;
+      padding: 10px;
+      outline: none;
+      border: 1px solid $color-6;
+      border-radius: 5px;
+    }
+  }
+
+  .btn-container {
+    margin: 10px 0;
+    text-align: center;
+
+    button {
+      padding: 10px;
+      border-radius: 5px;
+      outline: none;
+      border: 1px solid $color-4;
+      background: $color-1;
+      color: $color-2;
+      cursor: pointer;
+      transition: 03 ease-in-out all;
+      font-size: 16px;
+      
+      &:hover {
+        transform: scale(1.05)
+      }
+    }
+  }
+
+
+}
