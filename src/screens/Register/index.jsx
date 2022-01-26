@@ -1,21 +1,18 @@
 import './style.scss'
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { auth, db } from 'services/firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { setDoc, Timestamp, doc } from 'firebase/firestore';
+import { useAuth } from 'hooks/useAuth';
 
 const Register = () => {
-  const initialData = {
+  const auth = useAuth()
+
+  const [data, setData] = useState({
     name: "",
     email: "",
     password: "",
     error: null,
     loading: false,
-  }
-  const [data, setData] = useState(initialData)
+  })
   const { name, email, password, error, loading } = data;
-  const navigate = useNavigate()
   
   const handleChange = (e) => {
     setData({...data, [e.target.name]: e.target.value})
@@ -26,22 +23,10 @@ const Register = () => {
     setData({...data, error: null, loading: true})
     if (!name || !email || !password) {
       setData({...data, error: "all fields are requiered", loading: false})
+    } else {
+      auth.register(name, email, password)
     }
-
-    try {
-      const res = await createUserWithEmailAndPassword(auth, email, password)
-      await setDoc(doc(db, 'users', res.user.uid), {
-        uid: res.user.uid,
-        name,
-        email,
-        createdAt: Timestamp.fromDate(new Date()),
-        isOnline: true,
-      })
-      setData(initialData)
-      navigate("/")
-    } catch (err) {
-      // console.log(err)
-    }
+      
   }
 
   return (
@@ -65,7 +50,7 @@ const Register = () => {
         </div>
         
         <div className="btn-container">
-          <button type="submit" disabled={loading}>Register</button>
+          <button type="submit" disabled={loading}>{loading ? "..." : "Register" }</button>
         </div>
 
       </form>

@@ -8,29 +8,31 @@ import Register from 'screens/Register';
 import Login from 'screens/Login';
 import PrivateRoute from 'components/PrivateRoute';
 import Profile from 'screens/Profile';
-
+import { ProvideAuth } from 'hooks/useAuth.js'
 const App = () => {
   
   return (
     <div className="App">
       <BrowserRouter>
+      <ProvideAuth>
         <Navbar />
 
         <Routes>
           <Route path="/" exact element={
-            <PrivateRoute>
+            // <PrivateRoute>
               <Home />
-            </PrivateRoute>
+            // </PrivateRoute>
           }/>
           <Route path="/profile" exact element={
-            <PrivateRoute>
+            // <PrivateRoute>
               <Profile />
-            </PrivateRoute>
+            // </PrivateRoute>
           }/>
           <Route path="/register" element={<Register />} exact />
           <Route path="/login" element={<Login />} exact />
           <Route path="/*" element={<NotFound />} />
         </Routes>
+      </ProvideAuth>
       </BrowserRouter>
     </div>
   );

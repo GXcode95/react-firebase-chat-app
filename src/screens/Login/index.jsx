@@ -1,20 +1,16 @@
 import './style.scss'
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { auth, db } from 'services/firebase';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { updateDoc, doc } from 'firebase/firestore';
+import { useAuth } from 'hooks/useAuth'
 
 const Login = () => {
-  const initialData = {
+  const auth = useAuth()
+  const [data, setData] = useState({
     email: "",
     password: "",
     error: null,
     loading: false,
-  }
-  const [data, setData] = useState(initialData)
+  })
   const { email, password, error, loading } = data;
-  const navigate = useNavigate()
   
   const handleChange = (e) => {
     setData({...data, [e.target.name]: e.target.value})
@@ -25,17 +21,8 @@ const Login = () => {
     setData({...data, error: null, loading: true})
     if (!email || !password) {
       setData({...data, error: "all fields are requiered", loading: false})
-    }
-
-    try {
-      const res = await signInWithEmailAndPassword(auth, email, password)
-      await updateDoc(doc(db, 'users', res.user.uid), {
-        isOnline: true,
-      })
-      setData(initialData)
-      navigate("/")
-    } catch (err) {
-      // console.log(err)
+    } else {
+      auth.signin(email, password)
       setData({...data, loading: false})
     }
   }

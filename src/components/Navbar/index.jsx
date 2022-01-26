@@ -1,21 +1,19 @@
 import React from 'react'
 import './style.scss'
 import { Link, useNavigate } from "react-router-dom"
-import { auth, db} from 'services/firebase'
+import {  db} from 'services/firebase'
 import { updateDoc, doc } from 'firebase/firestore'
 import { signOut } from 'firebase/auth'
-import useAuth from 'hooks/useAuth'
+import { useAuth } from "hooks/useAuth"
 
 const Navbar = () => {
-  const { user } = useAuth()
+  const auth  = useAuth()
   const navigate = useNavigate()
 
   const handleLogout = async () => {
-    await updateDoc(doc( db, 'users', auth.currentUser.uid), {
-      isOnline: false,
-    })
-    await signOut(auth)
-    navigate('/login')
+
+
+    auth.signout()
   }
 
   return (
@@ -24,7 +22,7 @@ const Navbar = () => {
         <Link to="/">Messenger</Link>
       </h3>
 
-      { user ? 
+      { auth.user ? 
         <div>
           <Link to="/profile">Profile</Link>
           <button className="btn" onClick={handleLogout}>Logout</button>
@@ -35,7 +33,6 @@ const Navbar = () => {
           <Link to="/login">Login</Link>
         </div>
       }
-      {console.log("user",auth.currentUser)}
     </nav>
   )
 }
