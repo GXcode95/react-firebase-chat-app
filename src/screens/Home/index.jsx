@@ -9,6 +9,11 @@ import User from 'components/User';
 const Home = () => {
   const auth = useAuth()
   const [users ,setUsers] = useState([])
+  const [penpal, setPenpal] = useState("")
+
+  const selectUser = (user) => {
+    setPenpal(user)
+  }
 
   useEffect(() => {
     if(auth.user) {
@@ -21,17 +26,24 @@ const Home = () => {
         setUsers(tmpUsers)
       })
 
-      return () => unsubscribe()
+      return () => unsubscribe() // cancel the the onSnapshot, prevent memory leaks
     }
   }, [auth]);
   
   return (
     <div className="Home">
       <div className="users_container">
-        {users.map( user => <User key={user.uid} user={user}/> )}
-      
+        {users.map( user => <User key={user.uid} user={user} selectUser={selectUser}/> )}
       </div>
-      Home Page
+      <div className="messages_container">
+        { penpal ? 
+          <div className='messages_user'>
+            <h3>{penpal.name}</h3>
+          </div>
+          :
+          <h3 className="no_conv">Click on  a user to start a conversation</h3>
+        }
+      </div>
       {console.log(users)}
     </div>
   )

@@ -2,9 +2,10 @@ import './style.scss'
 import React from 'react'
 import Img from "assets/images/img.png"
 
-const User = ({user}) => {
+const User = ({user, selectUser}) => {
+
   return (
-    <div className="User">
+    <div className="User" onClick={e => selectUser(user)}>
       <div className="user_info">
         <div className="user_detail">
           <img src={user.avatar || Img} alt="avatar" className="avatar"/>
