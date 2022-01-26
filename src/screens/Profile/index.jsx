@@ -3,15 +3,15 @@ import './style.scss'
 import Img from 'assets/images/img.png'
 import CameraAltIcon from '@mui/icons-material/CameraAlt'
 import { storage, db} from 'services/firebase'
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage'
 import { getDocs, doc, getDoc, updateDoc } from 'firebase/firestore'
 import { useAuth } from 'hooks/useAuth'
-
+import { useNavigate } from 'react-router-dom'
 const Profile = () => {
   const [img, setImg] = useState("")
   const [user, setUser] = useState()
   const auth = useAuth()
-
+  const navigate = useNavigate()
   useEffect(() => {
     if(auth.user) {
       const getUserDoc = async () => {
@@ -24,7 +24,9 @@ const Profile = () => {
         }
       }
       getUserDoc()
-    }
+    }    
+  },[auth])
+  useEffect(() => {
     if(img) {
       const uploadImg = async () => {
         const imgRef = ref(
@@ -32,6 +34,12 @@ const Profile = () => {
           `avatar/${new Date().getTime()} - ${img.name}`
         )
         try {
+          //* DELETE old Avatar **/
+          if (user.avatarPath) {
+            await deleteObject(ref(storage, user.avatarPath))
+          }
+
+          //* UPLOAD new Avatar **/
           const snap = await uploadBytes(imgRef, img) //upload un fichier sur le firebase storage
           const url = await getDownloadURL(ref(storage, snap.ref.fullPath)) // get url from path in the firebase storage
           console.log("url", url)
@@ -40,13 +48,14 @@ const Profile = () => {
             avatarPath: snap.ref.fullPath
           })
           setImg("")
+          navigate("")
         } catch (error) {
           console.log(error)
         }
       }
       uploadImg()
     }
-  }, [img, auth]);
+  }, [img]);
 
 
   return user ? (
@@ -73,12 +82,11 @@ const Profile = () => {
           <h3>{user.name}</h3>
           <p>{user.email}</p>
           <hr />
-          <small>Join on: ...</small>
         </div>
 
       </div>
     </section>
-  ) : null
+  ) : <div></div>
 };
 
 export default Profile;
