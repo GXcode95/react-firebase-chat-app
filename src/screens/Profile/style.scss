@@ -1,0 +1,48 @@
+@import "styles/variables";
+
+.profile_container {
+  display: flex;
+  align-items: center;
+}
+
+.img_container {
+  position: relative;
+  margin: 20px;
+
+  img {
+    width: 100px;
+    height: 100px;
+    border: 1px solid $color-4;
+    border-radius: 50%;
+    transition: 0.5s ease-in-out;
+  }
+  input {
+    display: none;
+  }
+  .overlay {
+    transition: 0.5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  &:hover{
+    img {
+      opacity: 0.4;
+    }
+    .overlay {
+      opacity:1;
+    }  
+  }
+
+  .text_container { 
+    flex-grow: 1;
+
+    h3 {
+      text-align: left;
+    }
+  }
+}

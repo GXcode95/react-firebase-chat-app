@@ -14,10 +14,12 @@ const AuthProvider = ({children}) => {
       setUser(user)
       setLoading(false)
     })
-  }, [])
+    
+  }, [auth])
   if (loading) {
     return <Loading />
   }
+
   return (
     <AuthContext.Provider value={user}>
       {children}

@@ -1,13 +1,13 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import './style.scss'
 import { Link, useNavigate } from "react-router-dom"
 import { auth, db} from 'services/firebase'
 import { updateDoc, doc } from 'firebase/firestore'
 import { signOut } from 'firebase/auth'
-import { AuthContext } from 'context/auth'
+import useAuth from 'hooks/useAuth'
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext)
+  const { user } = useAuth()
   const navigate = useNavigate()
 
   const handleLogout = async () => {
@@ -36,7 +36,6 @@ const Navbar = () => {
         </div>
       }
       {console.log("user",auth.currentUser)}
-      {console.log("user2",user)}
     </nav>
   )
 }

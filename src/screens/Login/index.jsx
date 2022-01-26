@@ -55,7 +55,7 @@ const Login = () => {
           <input type="password" name="password" onChange={handleChange}/>
         </div>
         
-        <div className="btn-container">
+        <div className="btn_container">
           <button type="submit" disabled={loading}>
             {loading ? "Logging in ..." : "Login"}
           </button>
