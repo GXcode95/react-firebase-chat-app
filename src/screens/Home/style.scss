@@ -1,0 +1,36 @@
+@import 'styles/variables';
+
+.Home {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  overflow: hidden;
+  height: calc(100vh - 70px);
+  width: 100vw;
+
+  .users_container {
+    margin-top: 10px;
+    border-right: 2px solid $color-2;
+    overflow-y: auto;
+  }
+
+
+  .messages_container {
+    position: relative;
+    width: 100%;
+  }
+
+  .messages_user {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 2px solid $color-6;
+  }
+
+  .no_conv {
+    font-size: 20px;
+    color: $color-4;
+    text-align: center;
+  }
+
+
+}
