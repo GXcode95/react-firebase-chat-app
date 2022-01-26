@@ -4,7 +4,7 @@ import Img from 'assets/images/img.png'
 import CameraAltIcon from '@mui/icons-material/CameraAlt'
 import { storage, db} from 'services/firebase'
 import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage'
-import { getDocs, doc, getDoc, updateDoc } from 'firebase/firestore'
+import { doc, getDoc, updateDoc } from 'firebase/firestore'
 import { useAuth } from 'hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
 const Profile = () => {
