@@ -12,13 +12,15 @@ const Profile = () => {
   const [user, setUser] = useState()
   const auth = useAuth()
   const navigate = useNavigate()
-  useEffect(() => {
+
+
+  useEffect(() => { //set user
     if(auth.user) {
       const getUserDoc = async () => {
         console.log("auth", auth.user)
         try {
-          const res = await getDoc(doc(db, "users", auth.user.uid))
-          setUser(res.data())
+          const response = await getDoc(doc(db, "users", auth.user.uid))
+          setUser(response.data())
         } catch (error) {
           console.log(error)
         }
@@ -26,6 +28,7 @@ const Profile = () => {
       getUserDoc()
     }    
   },[auth])
+
   useEffect(() => {
     if(img) {
       const uploadImg = async () => {
@@ -34,12 +37,7 @@ const Profile = () => {
           `avatar/${new Date().getTime()} - ${img.name}`
         )
         try {
-          //* DELETE old Avatar **/
-          if (user.avatarPath) {
-            await deleteObject(ref(storage, user.avatarPath))
-          }
-
-          //* UPLOAD new Avatar **/
+          // Upload new Avatar
           const snap = await uploadBytes(imgRef, img) //upload un fichier sur le firebase storage
           const url = await getDownloadURL(ref(storage, snap.ref.fullPath)) // get url from path in the firebase storage
           console.log("url", url)
@@ -48,6 +46,10 @@ const Profile = () => {
             avatarPath: snap.ref.fullPath
           })
           setImg("")
+
+          // Delete old Avatar
+          if (user.avatarPath) await deleteObject(ref(storage, user.avatarPath))
+          
           navigate("")
         } catch (error) {
           console.log(error)
