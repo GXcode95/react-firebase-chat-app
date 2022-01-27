@@ -15,7 +15,6 @@ const Message = ({message, userId}) => {
         {message.media && <img src={message.media} alt={message.text} /> }
         {message.text}
         <br />
-        {console.log("date:", message.createdAt)}
         <small><Moment fromNow>{message.createdAt.toDate()}</Moment></small>
       </p>
     </div>
