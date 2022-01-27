@@ -7,6 +7,7 @@ import { db, storage } from 'services/firebase'
 import { useAuth } from 'hooks/useAuth'
 import User from 'components/User'
 import MessageForm from 'components/MessageForm'
+import Message from 'components/Message'
 
 const Home = () => {
   const auth = useAuth()
@@ -89,6 +90,12 @@ const Home = () => {
             <>
               <div className='messages_user'>
                 <h3>{penpal.name}</h3>
+              </div>
+              <div className="messages">
+                {console.log("msg", messages)}
+                {messages.length && messages.map((message, i) => 
+                  <Message key={i} message={message} />
+                )}
               </div>
               <MessageForm 
                 text={text}

@@ -14,7 +14,6 @@
     overflow-y: auto;
   }
 
-
   .messages_container {
     position: relative;
     width: 100%;
@@ -30,6 +29,13 @@
     font-size: 20px;
     color: $color-4;
     text-align: center;
+  }
+
+  .messages {
+    height: calc(100vh - 245px);
+    overflow-y: auto;
+    border-bottom: 1px solid $color-6;
+
   }
 
 
