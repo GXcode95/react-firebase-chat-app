@@ -60,6 +60,7 @@ const Home = () => {
         media: url || ""
       }) 
       setText("")
+      setImg("")
     } catch (error) {
       console.log(error)
     }

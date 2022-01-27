@@ -70,7 +70,6 @@ const useProvideAuth = ()  => {
   };
   //? ...................
 
-
   // Subscribe to user on mount (using JWT)
   // Because this sets state in the callback it will cause any ...
   // ... component that utilizes this hook to re-render with the ...
@@ -84,7 +83,7 @@ const useProvideAuth = ()  => {
   }, []);
 
 
-  // Return the user object and auth methods
+  // Return the user object and auth methodsw
   return {
     user,
     register,
