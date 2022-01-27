@@ -6,7 +6,6 @@ import { db } from 'services/firebase'
 
 const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
   const [data, setData] = useState()
-  console.log("chat", chatId, contact, penpal)
   useEffect(() => {
     if(chatId){
     const unsubscribe = onSnapshot(doc(db, 'lastMessage', chatId), (doc) => {
@@ -29,10 +28,11 @@ const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
       </div>
       {data && 
       <>  
-        <p className="truncate" >
-          <strong style={{marginRight: "10px"}}>{data.from === user.uid && "Me:"}</strong>
+        <p className="truncate last_message" >
+          <strong>{data.from === user.uid && "Me:"}</strong>
           {data.text}
         </p>      
+
       </>
       }
     </div>

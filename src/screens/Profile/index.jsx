@@ -40,7 +40,6 @@ const Profile = () => {
           // Upload new Avatar
           const snap = await uploadBytes(imgRef, img) //upload un fichier sur le firebase storage
           const url = await getDownloadURL(ref(storage, snap.ref.fullPath)) // get url from path in the firebase storage
-          console.log("url", url)
           await updateDoc(doc(db, "users", auth.user.uid), {
             avatar: url,
             avatarPath: snap.ref.fullPath

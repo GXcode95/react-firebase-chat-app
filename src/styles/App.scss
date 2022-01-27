@@ -19,3 +19,10 @@
     transform: scale(1.05)
   }
 }
+
+.truncate {
+  white-space: nowrap;
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,6 +1,6 @@
 import './style.scss'
 import React, { useState, useEffect } from 'react'
-import { addDoc, orderBy, query, setDoc, doc, Timestamp } from 'firebase/firestore'
+import { addDoc, orderBy, query, setDoc, doc, Timestamp, getDoc, updateDoc } from 'firebase/firestore'
 import { collection, onSnapshot, where } from 'firebase/firestore'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { db, storage } from 'services/firebase'
@@ -17,10 +17,10 @@ const Home = () => {
   const [img, setImg] = useState("")
   const [messages, setMessages] = useState([])
 
-  const selectPenpal = (user) => {
-    setPenpal(user)
+  const selectPenpal = async (contact) => {
+    setPenpal(contact)
     
-    const chatId = generateChatID(auth.user.uid, user.uid)
+    const chatId = generateChatID(auth.user.uid, contact.uid)
     const messagesRef = collection(db, 'chats', chatId, "messages")
     const q = query(messagesRef, orderBy('createdAt', 'asc'))
 
@@ -29,6 +29,12 @@ const Home = () => {
       querySnapshot.forEach(doc => tempMessages.push(doc.data()))
       setMessages(tempMessages)
     })
+
+    const docSnap = await getDoc(doc(db, 'lastMessage', chatId))
+    if(docSnap.data().from !== auth.user.uid) {
+      await updateDoc(doc(db, "lastMessage", chatId), {unread: false})
+    }
+
   }
 
   const generateChatID = (user1, user2) => {
@@ -52,28 +58,29 @@ const Home = () => {
       }
 
       //upload the message in the messages doc
-      await addDoc(collection(db, 'chats', chatId, 'messages' ), { // need to had a subCollection beacause...
+      await addDoc(collection(db, 'chats', chatId, 'messages' ), { // need to had a subCollection because...
         // ... it's impossible to addDoc directly on a document ...
         // ... limitation due to firebase firestore structure.
         text,
         from: auth.user.uid,
         to: penpal.uid,
         createdAt: Timestamp.fromDate(new Date()),
-        media: url || ""
+        media: url || "",
       }) 
 
-      // create a last message doc
+      // create a last message doc (if it already exist, it just replace it )
       await setDoc(doc(db, 'lastMessage', chatId), {
         text,
         from: auth.user.uid,
-        to: penpal.uid
+        to: penpal.uid,
+        media: url || "",
+        unread: true,
       })
 
       // Reset state after message send successfully
       setText("")
       setImg("")
     } catch (error) {
-      console.log(error)
     }
   }
 
@@ -113,7 +120,6 @@ const Home = () => {
                 <h3>{penpal.name}</h3>
               </div>
               <div className="messages">
-                {console.log("msg", messages)}
                 {messages.length && messages.map((message, i) => 
                   <Message key={i} message={message} userId={auth.user.uid} />
                 )}
