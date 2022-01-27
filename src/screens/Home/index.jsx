@@ -95,7 +95,7 @@ const Home = () => {
               <div className="messages">
                 {console.log("msg", messages)}
                 {messages.length && messages.map((message, i) => 
-                  <Message key={i} message={message} />
+                  <Message key={i} message={message} userId={auth.user.uid} />
                 )}
               </div>
               <MessageForm 

@@ -1,12 +1,17 @@
 import './style.scss'
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import Moment from 'react-moment'
 
-const Message = ({message}) => {
+const Message = ({message, userId}) => {
+  const scrollRef = useRef()
+
+  useEffect(() => {
+    scrollRef.current?.scrollIntoView({ behavior: "smooth"})
+  }, [message])
 
   return (
-    <div className='Message'>
-      <p>
+    <div className={`Message ${message.from === userId ? "own" : ""}`} ref={scrollRef}>
+      <p className={message.from === userId ? "me" : "panpel"}>
         {message.media && <img src={message.media} alt={message.text} /> }
         {message.text}
         <br />

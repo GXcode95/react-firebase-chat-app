@@ -1,6 +1,14 @@
+@import 'styles/variables';
+
 .Message {
   margin-top: 5px;
   padding: 0 5px;
+  &.own {
+    text-align: right;
+    p {
+      background: $color-3;
+    }
+  }
 
   img {
     width: 100%;
@@ -13,6 +21,7 @@
     max-width: 50%;
     text-align: left;
     border-radius: 5px;
+    background: $color-6;
 
     small {
       display: inline-block;
