@@ -15,7 +15,7 @@ const Home = () => {
   const [penpal, setPenpal] = useState("")
   const [text, setText] = useState("")
   const [image, setImage] = useState("")
-  const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState()
 
   const selectPenpal = async (contact) => {
     setPenpal(contact)
@@ -122,7 +122,7 @@ const Home = () => {
               <h3>{penpal.name}</h3>
             </div>
             <div className="messages">
-              {messages.length && messages.map((message, i) => 
+              {messages && messages.map((message, i) => 
                 <Message key={i} message={message} userId={auth.user.uid} />
               )}
             </div>
