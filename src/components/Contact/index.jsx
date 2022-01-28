@@ -17,25 +17,31 @@ const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
   }, [chatId])
 
   return (
-    <div className={`Contact ${contact.uid === penpal.uid && "active"}`} onClick={e => selectPenpal(contact)}>
-      <div className="contact_info">
-        <div className="contact_detail">
-          <img src={contact.avatar || Img} alt="avatar" className="avatar"/>
-          <h4>{contact.name}</h4>
-          {data?.from !== user.uid && data?.unread && <small className='unread'>New</small>}
+    <div className='Contact'>
+      <div className={`contact_container ${contact.uid === penpal.uid && "active"}`} onClick={e => selectPenpal(contact)}>
+        <div className="contact_info">
+          <div className="contact_detail">
+            <img src={contact.avatar || Img} alt="avatar" className="avatar"/>
+            <h4>{contact.name}</h4>
+            {data?.from !== user.uid && data?.unread && <small className='unread'>New</small>}
+          </div>
+          <div className={`contact_status ${contact.isOnline ? "online" : "offline"}`}></div>
         </div>
-        <div className={`contact_status ${contact.isOnline ? "online" : "offline"}`}></div>
+        {data && 
+        <>  
+          <p className="truncate last_message" >
+            <strong>{data.from === user.uid && "Me:"}</strong>
+            {data.text}
+          </p>      
+        </>
+        }
       </div>
-      {data && 
-      <>  
-        <p className="truncate last_message" >
-          <strong>{data.from === user.uid && "Me:"}</strong>
-          {data.text}
-        </p>      
-
-      </>
-      }
+  
+      <div className="contact_sm_container" onClick={e => selectPenpal(contact)}>
+        <img src={contact.avatar || Img} alt="avatar" className="avatar sm_screen"/>
+      </div>
     </div>
+
   )
 }
 

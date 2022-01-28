@@ -84,6 +84,7 @@ const Home = () => {
     }
   }
 
+  
   useEffect(() => {
     if(auth.user) {
       const userRef = collection(db, 'users')

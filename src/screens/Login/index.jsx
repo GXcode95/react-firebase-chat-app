@@ -43,7 +43,7 @@ const Login = () => {
         </div>
         
         <div className="btn_container">
-          <button type="submit" disabled={loading}>
+          <button className='btn' type="submit" disabled={loading}>
             {loading ? "Logging in ..." : "Login"}
           </button>
         </div>

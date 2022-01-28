@@ -17,6 +17,7 @@
   .messages_container {
     position: relative;
     width: 100%;
+    max-width: calc(100vw/4 * 3);
   }
 
   .messages_user {
@@ -37,6 +38,10 @@
     border-bottom: 1px solid $color-6;
 
   }
+}
 
-
+@media (max-width: 800px) {
+  .Home {
+    grid-template-columns: 1fr 6fr;
+  }
 }

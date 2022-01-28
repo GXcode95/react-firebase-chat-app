@@ -15,7 +15,6 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_APP_ID ,
 };
 
-
 // Initialize app peut init notre application firebase, il ui faut pour ça les config de notre application
 const app = initializeApp(firebaseConfig)
 export const db = getFirestore(app)
