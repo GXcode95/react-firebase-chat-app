@@ -18,8 +18,8 @@ const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
   }, [chatId])
 
   return (
-    <div className='Contact'>
-      <div className={`contact_container ${contact.uid === penpal.uid && "active"}`} onClick={e => selectPenpal(contact)}>
+    <div className={`Contact ${contact.uid === penpal.uid && "active"}`}>
+      <div className='contact_container'  onClick={e => selectPenpal(contact)}>
         <div className="contact_info">
           <div className="contact_detail">
             <img src={contact.avatar || defaultAvatar} alt="avatar" className="avatar"/>

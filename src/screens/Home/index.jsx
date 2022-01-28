@@ -103,7 +103,7 @@ const Home = () => {
   
   return (
     <div className="Home">
-      <div className="penpal_container">
+      <div className="contact_list_container">
         {contacts.map( contact =>
            <Contact 
             key={contact.uid}
