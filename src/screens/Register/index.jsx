@@ -25,6 +25,7 @@ const Register = () => {
       setData({...data, error: "all fields are requiered", loading: false})
     } else {
       auth.register(name, email, password)
+      setData({...data, loading: false})
     }
       
   }

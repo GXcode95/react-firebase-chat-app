@@ -14,7 +14,7 @@ const Home = () => {
   const [contacts ,setContacts] = useState([])
   const [penpal, setPenpal] = useState("")
   const [text, setText] = useState("")
-  const [img, setImg] = useState("")
+  const [image, setImage] = useState("")
   const [messages, setMessages] = useState([])
 
   const selectPenpal = async (contact) => {
@@ -51,9 +51,9 @@ const Home = () => {
     try  {
       // upload the image to firebaseStorage add the url to message.media
       let url;
-      if(img){
-        const imgRef = ref(storage, `images/${new Date().getTime} - ${img.name}`)
-        const snap = await uploadBytes(imgRef, img)
+      if(image){
+        const imageRef = ref(storage, `images/${new Date().getTime} - ${image.name}`)
+        const snap = await uploadBytes(imageRef, image)
         url = await getDownloadURL(ref(storage, snap.ref.fullPath))
       }
 
@@ -79,8 +79,9 @@ const Home = () => {
 
       // Reset state after message send successfully
       setText("")
-      setImg("")
+      setImage("")
     } catch (error) {
+      console.log(error)
     }
   }
 
@@ -115,23 +116,23 @@ const Home = () => {
         )}
       </div>
       <div className="messages_container">
-        { penpal ? 
-            <>
-              <div className='messages_user'>
-                <h3>{penpal.name}</h3>
-              </div>
-              <div className="messages">
-                {messages.length && messages.map((message, i) => 
-                  <Message key={i} message={message} userId={auth.user.uid} />
-                )}
-              </div>
-              <MessageForm 
-                text={text}
-                setImg={setImg}
-                setText={setText} 
-                sendMessage={sendMessage} 
-              />
-            </>
+        {penpal ? 
+          <>
+            <div className='messages_user'>
+              <h3>{penpal.name}</h3>
+            </div>
+            <div className="messages">
+              {messages.length && messages.map((message, i) => 
+                <Message key={i} message={message} userId={auth.user.uid} />
+              )}
+            </div>
+            <MessageForm 
+              text={text}
+              setImage={setImage}
+              setText={setText} 
+              sendMessage={sendMessage} 
+            />
+          </>
           :
           <h3 className="no_conv">Click on  a user to start a conversation</h3>
         }

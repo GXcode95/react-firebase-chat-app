@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './style.scss'
-import Img from 'assets/images/img.png'
+import defaultAvatar from "assets/images/defaultAvatar.png"
 import CameraAltIcon from '@mui/icons-material/CameraAlt'
 import { storage, db} from 'services/firebase'
 import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage'
@@ -8,7 +8,7 @@ import { doc, getDoc, updateDoc } from 'firebase/firestore'
 import { useAuth } from 'hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
 const Profile = () => {
-  const [img, setImg] = useState("")
+  const [image, setImage] = useState("")
   const [user, setUser] = useState()
   const auth = useAuth()
   const navigate = useNavigate()
@@ -30,21 +30,21 @@ const Profile = () => {
   },[auth])
 
   useEffect(() => {
-    if(img) {
-      const uploadImg = async () => {
-        const imgRef = ref(
+    if(image) {
+      const uploadImage = async () => {
+        const imageRef = ref(
           storage,
-          `avatar/${new Date().getTime()} - ${img.name}`
+          `avatar/${new Date().getTime()} - ${image.name}`
         )
         try {
           // Upload new Avatar
-          const snap = await uploadBytes(imgRef, img) //upload un fichier sur le firebase storage
+          const snap = await uploadBytes(imageRef, image) //upload un fichier sur le firebase storage
           const url = await getDownloadURL(ref(storage, snap.ref.fullPath)) // get url from path in the firebase storage
           await updateDoc(doc(db, "users", auth.user.uid), {
             avatar: url,
             avatarPath: snap.ref.fullPath
           })
-          setImg("")
+          setImage("")
 
           // Delete old Avatar
           if (user.avatarPath) await deleteObject(ref(storage, user.avatarPath))
@@ -54,9 +54,9 @@ const Profile = () => {
           console.log(error)
         }
       }
-      uploadImg()
+      uploadImage()
     }
-  }, [img]);
+  }, [image]);
 
 
   return user ? (
@@ -64,7 +64,7 @@ const Profile = () => {
       <div className="profile_container">
 
         <div className="img_container">
-          <img src={user.avatar || Img} alt="avatar" />
+          <img src={user.avatar || defaultAvatar} alt="avatar" />
           <div className="overlay">
             <div>
               <label htmlFor="photo" >
@@ -73,7 +73,7 @@ const Profile = () => {
               <input 
                 type="file" accept="image/*" 
                 id="photo"
-                onChange={ e => setImg(e.target.files[0])}
+                onChange={ e => setImage(e.target.files[0])}
               />
             </div>
           </div>

@@ -43,5 +43,9 @@
 @media (max-width: 800px) {
   .Home {
     grid-template-columns: 1fr 6fr;
+
+    .messages_container {
+      max-width: calc(100vw/7 * 6);
+    }
   }
 }
