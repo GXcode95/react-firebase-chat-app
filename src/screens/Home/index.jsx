@@ -103,7 +103,7 @@ const Home = () => {
   
   return (
     <div className="Home">
-      <div className="contact_list_container">
+      <div className="contact_list_container invisible_scroll">
         {contacts.map( contact =>
            <Contact 
             key={contact.uid}
@@ -121,7 +121,7 @@ const Home = () => {
             <div className='messages_user'>
               <h3>{penpal.name}</h3>
             </div>
-            <div className="messages">
+            <div className="messages invisible_scroll">
               {messages && messages.map((message, i) => 
                 <Message key={i} message={message} userId={auth.user.uid} />
               )}
