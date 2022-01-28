@@ -51,7 +51,7 @@ const Register = () => {
         </div>
         
         <div className="btn-container">
-          <button type="submit" disabled={loading}>{loading ? "..." : "Register" }</button>
+          <button className='btn' type="submit" disabled={loading}>{loading ? "..." : "Register" }</button>
         </div>
 
       </form>
