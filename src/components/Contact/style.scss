@@ -1,13 +1,12 @@
 @import 'styles/variables';
 
 .Contact {
-  margin-bottom: 10px;
-  padding: 10px;
-  cursor: pointer;
+  // padding: 10px;
+  // cursor: pointer;
   
-  &.active {
-    background: $color-4;
-  }
+  // &.active {
+  //   background: $color-4;
+  // }
 
   .avatar {
     width: 50px;
@@ -65,15 +64,15 @@
   }
 }
 
-@media (max-width: 800px) {
-  .Contact {
-    .contact_container {
-      display:none;
-    }
+// @media (max-width: 800px) {
+//   .Contact {
+//     .contact_container {
+//       display:none;
+//     }
 
-    .contact_sm_container {
-      display: flex;
-      justify-content: center;
-    }
-  }
-}
+//     .contact_sm_container {
+//       display: flex;
+//       justify-content: center;
+//     }
+//   }
+// }

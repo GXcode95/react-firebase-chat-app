@@ -3,10 +3,11 @@ import React, { useEffect, useState} from 'react'
 import defaultAvatar from "assets/images/defaultAvatar.png"
 import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from 'services/firebase'
+import { Box } from '@mui/material'
 
 const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
   const [data, setData] = useState()
-
+  const active = contact.uid === penpal.uid
   useEffect(() => {
     if(chatId){
       const unsubscribe = onSnapshot(doc(db, 'lastMessage', chatId), (doc) => {
@@ -18,8 +19,16 @@ const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
   }, [chatId])
 
   return (
-    <div className={`Contact ${contact.uid === penpal.uid && "active"}`}>
-      <div className='contact_container'  onClick={e => selectPenpal(contact)}>
+    <Box className={`Contact `}
+      bgcolor={ active && "grey.600"}
+      p="10px 10px 20px 10px"
+      sx={{cursor: "pointer"}}
+      
+    >
+      <Box className='contact_container'
+        display={{xs: "none", md: "block"}}
+        onClick={e => selectPenpal(contact)}
+      >
         <div className="contact_info">
           <div className="contact_detail">
             <img src={contact.avatar || defaultAvatar} alt="avatar" className="avatar"/>
@@ -36,12 +45,16 @@ const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
           </p>      
         </>
         }
-      </div>
+      </Box>
   
-      <div className="contact_sm_container" onClick={e => selectPenpal(contact)}>
-      <img src={contact.avatar || defaultAvatar} alt="avatar" className="avatar sm_screen"/>
-      </div>
-    </div>
+      <Box 
+        display={{xs: "flex", md:"none"}} 
+        justifyContent="center"
+        onClick={e => selectPenpal(contact)}
+      >
+        <img src={contact.avatar || defaultAvatar} alt="avatar" className="avatar sm_screen"/>
+      </Box>
+    </Box>
 
   )
 }

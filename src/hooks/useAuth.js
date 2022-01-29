@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { auth, db} from 'services/firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
-import { updateDoc, setDoc, Timestamp, doc, getDoc } from 'firebase/firestore'
+import { updateDoc, setDoc, Timestamp, doc } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom';
 
 export const AuthContext = createContext()
@@ -83,7 +83,7 @@ const useProvideAuth = ()  => {
   }, []);
 
 
-  // Return the user object and auth methodsw
+  // Return the user object and auth methods
   return {
     user,
     register,

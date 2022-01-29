@@ -8,6 +8,7 @@ import { useAuth } from 'hooks/useAuth'
 import Contact from 'components/Contact'
 import MessageForm from 'components/MessageForm'
 import Message from 'components/Message'
+import {Box, Typography} from '@mui/material'
 
 const Home = () => {
   const auth = useAuth()
@@ -102,8 +103,12 @@ const Home = () => {
   }, [auth]);
   
   return (
-    <div className="Home">
-      <div className="contact_list_container invisible_scroll">
+    <Box className="Home" position="relative" overflow="hidden" display="flex" width="100vw"  height="calc(100vh - 70px)" >
+      <Box 
+        flex={{xs: "0.15", md:"0.25"}} 
+        className="i-scroll"
+        sx={{borderRight: "1px solid white"}} 
+      >
         {contacts.map( contact =>
            <Contact 
             key={contact.uid}
@@ -114,18 +119,24 @@ const Home = () => {
             user={auth.user}
           /> 
         )}
-      </div>
-      <div className="messages_container">
+      </Box>
+      <Box flex="1" position="relative" width="100%">
         {penpal ? 
           <>
-            <div className='messages_user'>
-              <h3>{penpal.name}</h3>
-            </div>
-            <div className="messages invisible_scroll">
+            <Typography variant="h4" p="10px" component="h3">
+              {penpal.name}
+            </Typography>
+
+            <Box 
+              className="i-scroll"
+              height="calc(100vh - 220px)"
+              borderBottom="1px solid grey"
+            >
               {messages && messages.map((message, i) => 
                 <Message key={i} message={message} userId={auth.user.uid} />
               )}
-            </div>
+            </Box>
+            
             <MessageForm 
               text={text}
               setImage={setImage}
@@ -134,10 +145,12 @@ const Home = () => {
             />
           </>
           :
-          <h3 className="no_conv">Click on  a user to start a conversation</h3>
+          <Typography variant="h5" component="h3" align="center">
+            Click on  a user to start a conversation
+          </Typography>
         }
-      </div>
-    </div>
+      </Box>
+    </Box>
   )
 }
 

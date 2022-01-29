@@ -29,6 +29,7 @@ const Login = () => {
 
   return (
     <section className="Login">
+      laoding
       <h3>Login to your Acount</h3>
       <form className="form" onSubmit={handleSubmit}>
 
@@ -44,7 +45,7 @@ const Login = () => {
         
         <div className="btn_container">
           <button className='btn' type="submit" disabled={loading}>
-            {loading ? "Logging in ..." : "Login"}
+            Login
           </button>
         </div>
 
