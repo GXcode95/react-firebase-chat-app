@@ -1,13 +1,18 @@
 import './style.scss'
 import React, { useEffect, useState} from 'react'
-import defaultAvatar from "assets/images/defaultAvatar.png"
 import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from 'services/firebase'
 import { Box } from '@mui/material'
+import Avatar from 'components/Avatar'
+import LastMessage from 'components/LastMessage'
 
 const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
   const [data, setData] = useState()
+
   const active = contact.uid === penpal.uid
+  const isNewMessage = data?.from !== user.uid && data?.unread 
+  const userIsAuthor = data?.from === user.uid
+
   useEffect(() => {
     if(chatId){
       const unsubscribe = onSnapshot(doc(db, 'lastMessage', chatId), (doc) => {
@@ -19,40 +24,33 @@ const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
   }, [chatId])
 
   return (
-    <Box className={`Contact `}
-      bgcolor={ active && "grey.600"}
-      p="10px 10px 20px 10px"
-      sx={{cursor: "pointer"}}
-      
+    <Box className="Contact" 
+      bgcolor={ active && "grey.600"} 
     >
-      <Box className='contact_container'
-        display={{xs: "none", md: "block"}}
+      {/*********************
+       **  Full Size Card  **
+       *********************/}
+      <Box display={{xs: "none", md: "block"}}
         onClick={e => selectPenpal(contact)}
       >
-        <div className="contact_info">
-          <div className="contact_detail">
-            <img src={contact.avatar || defaultAvatar} alt="avatar" className="avatar"/>
-            <h4>{contact.name}</h4>
-            {data?.from !== user.uid && data?.unread && <small className='unread'>New</small>}
-          </div>
-          <div className={`contact_status ${contact.isOnline ? "online" : "offline"}`}></div>
-        </div>
-        {data && 
-        <>  
-          <p className="truncate last_message" >
-            <strong>{data.from === user.uid && "Me:"}</strong>
-            {data.text}
-          </p>      
-        </>
-        }
+        <Box display="flex" alignItems="center">
+          <Avatar img={contact.avatar} isOnline={contact.isOnline} />
+          <h4 style={{marginLeft: "10px"}}>
+            {contact.name}
+          </h4>
+          { isNewMessage && <small className='unread'>New</small> }
+        </Box>
+         <LastMessage text={data?.text} isAuthor={userIsAuthor} /> 
       </Box>
   
-      <Box 
-        display={{xs: "flex", md:"none"}} 
+      {/*********************
+       **  Small Card  **
+       *********************/}
+      <Box display={{xs: "flex", md:"none"}} 
         justifyContent="center"
         onClick={e => selectPenpal(contact)}
       >
-        <img src={contact.avatar || defaultAvatar} alt="avatar" className="avatar sm_screen"/>
+        <Avatar img={contact.avatar} isOnline={contact.isOnline} />
       </Box>
     </Box>
 

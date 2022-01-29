@@ -19,6 +19,7 @@ const Home = () => {
   const [messages, setMessages] = useState()
 
   const selectPenpal = async (contact) => {
+    if(!contact) return
     setPenpal(contact)
     
     const chatId = generateChatID(auth.user.uid, contact.uid)
@@ -31,11 +32,14 @@ const Home = () => {
       setMessages(tempMessages)
     })
 
-    const docSnap = await getDoc(doc(db, 'lastMessage', chatId))
-    if(docSnap.data().from !== auth.user.uid) {
-      await updateDoc(doc(db, "lastMessage", chatId), {unread: false})
+    try {
+      const docSnap = await getDoc(doc(db, 'lastMessage', chatId))
+      if(docSnap.data() && docSnap.data().from !== auth.user.uid) {
+        await updateDoc(doc(db, "lastMessage", chatId), {unread: false})
+      }
+    } catch (error) {
+      console.log(error)
     }
-
   }
 
   const generateChatID = (user1, user2) => {

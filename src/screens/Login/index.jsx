@@ -29,7 +29,6 @@ const Login = () => {
 
   return (
     <section className="Login">
-      laoding
       <h3>Login to your Acount</h3>
       <form className="form" onSubmit={handleSubmit}>
 

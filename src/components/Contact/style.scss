@@ -1,47 +1,8 @@
 @import 'styles/variables';
 
 .Contact {
-  // padding: 10px;
-  // cursor: pointer;
-  
-  // &.active {
-  //   background: $color-4;
-  // }
-
-  .avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 1px solid $color-4;
-  }
-
-  .contact_container {
-
-
-    .contact_info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      .contact_detail {
-        display: flex;
-        align-items: center;
-
-        h4 { margin-left: 10px; }
-      
-      }
-
-      .contact_status {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        
-        &.online { background: $color-7; }
-
-        &.offline { background: $color-5; }
-      }
-
-    }
+  padding: 10px;
+  cursor: pointer;
 
     .unread {
       margin-left: 10px;
@@ -49,30 +10,4 @@
       padding: 2px 4px;
       border-radius: 10px;
     }
-
-    .last_message {
-      font-size: 14px;
-      
-      strong {
-        margin-right: 5px;
-      }
-    }
-  }
-
-  .contact_sm_container {
-    display: none;
-  }
 }
-
-// @media (max-width: 800px) {
-//   .Contact {
-//     .contact_container {
-//       display:none;
-//     }
-
-//     .contact_sm_container {
-//       display: flex;
-//       justify-content: center;
-//     }
-//   }
-// }

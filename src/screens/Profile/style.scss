@@ -5,20 +5,9 @@
   align-items: center;
 }
 
-.img_container {
-  position: relative;
-  margin: 20px;
+.Profile {
 
-  img {
-    width: 100px;
-    height: 100px;
-    border: 1px solid $color-4;
-    border-radius: 50%;
-    transition: 0.5s ease-in-out;
-  }
-  input {
-    display: none;
-  }
+
   .overlay {
     transition: 0.5s ease;
     opacity: 0;
@@ -31,18 +20,11 @@
   
   &:hover{
     img {
-      opacity: 0.4;
+      opacity: 0.2;
     }
     .overlay {
       opacity:1;
     }  
   }
 
-  .text_container { 
-    flex-grow: 1;
-
-    h3 {
-      text-align: left;
-    }
-  }
 }
