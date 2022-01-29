@@ -2,7 +2,6 @@
 * {
   box-sizing: border-box;
   text-decoration: none;
-  color: $color-2;
   margin: 0;
 }
 body {
@@ -23,9 +22,7 @@ h3 {
   color: $color-4;
 }
 
-form {
-  margin-top: 30px;
-}
+
 input {
   color: $color-1;
 }

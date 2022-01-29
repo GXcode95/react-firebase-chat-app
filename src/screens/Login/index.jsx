@@ -1,6 +1,6 @@
-import './style.scss'
 import React, { useState } from 'react'
 import { useAuth } from 'hooks/useAuth'
+import { Box, Container, Button, TextField, Typography} from '@mui/material'
 
 const Login = () => {
   const auth = useAuth()
@@ -28,29 +28,58 @@ const Login = () => {
   }
 
   return (
-    <section className="Login">
-      <h3>Login to your Acount</h3>
-      <form className="form" onSubmit={handleSubmit}>
+    <Container 
+      sx={{display:"flex", flexDirection: "column", alignItems:"center" }} 
+    >
+      <Typography variant="h3" my={5}>Login</Typography>
+      <Box 
+        component="form" 
+        width="80%" 
+        maxWidth="500px"
+        minWidth="200px"
+        onSubmit={handleSubmit}
+      >
 
-        <div className="input_container">
+        <Box mb={4} fontSize="26px"> {/* Email */}
           <label htmlFor="email" name="email">Email</label>
-          <input type="text" name="email" onChange={handleChange}/>
-        </div>
+          <TextField 
+            variant="standard" 
+            color="primary"
+            type="email"
+            name="email" 
+            margin="normal"
+            fullWidth
+            required
+            autofocus
+            onChange={handleChange}
+            InputProps={{style: {fontSize: "22px", padding: " 5px 0"}}}
+          />
+        </Box>
 
-        <div className="input_container">
+        <Box mb={4} fontSize="26px"> {/* Password */}
           <label htmlFor="password" name="password">Password</label>
-          <input type="password" name="password" onChange={handleChange}/>
-        </div>
+          <TextField 
+            variant="standard" 
+            color="primary"
+            type="password"
+            name="password" 
+            margin="normal"
+            fullWidth
+            required
+            onChange={handleChange}
+            InputProps={{style: {fontSize: "22px", padding: " 5px 0"}}}
+          />
+        </Box>
         
-        <div className="btn_container">
-          <button className='btn' type="submit" disabled={loading}>
+        <Box textAlign="center">
+          <Button variant="outlined" type="submit" disabled={loading}>
             Login
-          </button>
-        </div>
+          </Button>
+        </Box>
 
-      </form>
+      </Box>
       <p className="error">{error}</p>
-    </section>
+    </Container>
   )   
 }
 

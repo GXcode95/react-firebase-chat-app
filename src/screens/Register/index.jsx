@@ -1,6 +1,7 @@
 import './style.scss'
 import React, { useState } from 'react'
 import { useAuth } from 'hooks/useAuth';
+import { Box, Container, Button, TextField, Typography} from '@mui/material'
 
 const Register = () => {
   const auth = useAuth()
@@ -31,32 +32,73 @@ const Register = () => {
   }
 
   return (
-    <section className="Register">
+      <Container 
+      sx={{display:"flex", flexDirection: "column", alignItems:"center" }} 
+      >
       <h3>Create Acount</h3>
-      <form className="form" onSubmit={handleSubmit}>
+      <Typography variant="h3" my={5}>Login</Typography>
+      <Box 
+        component="form" 
+        width="80%" 
+        maxWidth="500px"
+        minWidth="200px"
+        onSubmit={handleSubmit}
+      >
 
-        <div className="input_container">
-          <label htmlFor="name" name="name">Name</label>
-          <input type="text" name="name" onChange={handleChange}/>
-        </div>
-
-        <div className="input_container">
+        <Box mb={4} fontSize="26px"> {/* Email */}
           <label htmlFor="email" name="email">Email</label>
-          <input type="text" name="email" onChange={handleChange}/>
-        </div>
+          <TextField 
+            variant="standard" 
+            color="primary"
+            type="email"
+            name="email" 
+            margin="normal"
+            fullWidth
+            required
+            autofocus
+            onChange={handleChange}
+            InputProps={{style: {fontSize: "22px", padding: " 5px 0"}}}
+          />
+        </Box>
 
-        <div className="input_container">
+        <Box mb={4} fontSize="26px"> {/* Password */}
           <label htmlFor="password" name="password">Password</label>
-          <input type="password" name="password" onChange={handleChange}/>
-        </div>
-        
-        <div className="btn-container">
-          <button className='btn' type="submit" disabled={loading}>{loading ? "..." : "Register" }</button>
-        </div>
+          <TextField 
+            variant="standard" 
+            color="primary"
+            type="password"
+            name="password" 
+            margin="normal"
+            fullWidth
+            required
+            onChange={handleChange}
+            InputProps={{style: {fontSize: "22px", padding: "5px 0"}}}
+          />
+        </Box>
 
-      </form>
+        <Box mb={4} fontSize="26px"> {/* name */}
+          <label htmlFor="name" name="name">Name</label>
+          <TextField 
+            variant="standard" 
+            color="primary"
+            name="name" 
+            margin="normal"
+            fullWidth
+            required
+            onChange={handleChange}
+            InputProps={{style: {fontSize: "22px", padding: "5px 0"}}}
+          />
+        </Box>
+
+        <Box textAlign="center">
+          <Button variant="outlined" type="submit" disabled={loading}>
+            Register
+          </Button>
+        </Box>
+
+      </Box>
       <p className="error">{error}</p>
-    </section>
+    </Container>
   )   
 }
 

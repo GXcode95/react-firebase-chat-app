@@ -11,7 +11,7 @@ const Message = ({message, userId}) => {
 
   return (
     <div className={`Message ${message.from === userId ? "own" : ""}`} ref={scrollRef}>
-      <p className={message.from === userId ? "me" : "panpel"}>
+      <p className={message.from === userId ? "me" : "panpel"} style={{color: "white"}}>
         {message.media && <img src={message.media} alt={message.text} /> }
         {message.text}
         <br />
