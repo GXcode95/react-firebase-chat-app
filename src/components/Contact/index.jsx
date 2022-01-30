@@ -35,9 +35,9 @@ const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
       >
         <Box display="flex" alignItems="center">
           <Avatar img={contact.avatar} isOnline={contact.isOnline} />
-          <h4 style={{marginLeft: "10px"}}>
+          <p className="contact-name">
             {contact.name}
-          </h4>
+          </p>
           { isNewMessage && <small className='unread'>New</small> }
         </Box>
          <LastMessage text={data?.text} isAuthor={userIsAuthor} /> 

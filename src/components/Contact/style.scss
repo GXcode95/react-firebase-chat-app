@@ -4,10 +4,15 @@
   padding: 10px;
   cursor: pointer;
 
-    .unread {
-      margin-left: 10px;
-      background: $color-3;
-      padding: 2px 4px;
-      border-radius: 10px;
-    }
+  .contact-name {
+    font-size: 22px;
+    margin-left: 10px;
+  }
+
+  .unread {
+    margin-left: 10px;
+    background: $color-3;
+    padding: 2px 4px;
+    border-radius: 10px;
+  }
 }

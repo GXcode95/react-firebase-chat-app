@@ -107,11 +107,11 @@ const Home = () => {
   }, [auth]);
   
   return (
-    <Box className="Home" position="relative" overflow="hidden" display="flex" width="100vw"  height="calc(100vh - 70px)" >
-      <Box 
+    <Box className="Home">
+      <Box className="i-scroll contact-list-container"
         flex={{xs: "0.15", md:"0.25"}} 
-        className="i-scroll"
-        sx={{borderRight: "1px solid white"}} 
+        borderRight="2px solid"
+        borderColor="grey.600"
       >
         {contacts.map( contact =>
            <Contact 
@@ -124,18 +124,16 @@ const Home = () => {
           /> 
         )}
       </Box>
-      <Box flex="1" position="relative" width="100%">
+      <Box className="messages-container" flex="1">
         {penpal ? 
           <>
-            <Typography variant="h4" p="10px" component="h3">
-              {penpal.name}
-            </Typography>
+            <Box p="10px" borderBottom="2px solid" borderColor="grey.600">
+              <Typography variant="h3" align="center">
+                {penpal.name}
+              </Typography>
+            </Box>
 
-            <Box 
-              className="i-scroll"
-              height="calc(100vh - 220px)"
-              borderBottom="1px solid grey"
-            >
+            <Box className="i-scroll messages" borderColor="grey.600">
               {messages && messages.map((message, i) => 
                 <Message key={i} message={message} userId={auth.user.uid} />
               )}

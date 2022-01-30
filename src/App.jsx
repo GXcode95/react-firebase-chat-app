@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import 'styles/App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from 'screens/Home';
@@ -9,17 +9,21 @@ import Login from 'screens/Login';
 import PrivateRoute from 'components/PrivateRoute';
 import Profile from 'screens/Profile';
 import { ProvideAuth } from 'hooks/useAuth.js'
+import { Box } from '@mui/material'
 import { ThemeProvider, CssBaseline } from '@mui/material';
-import {dark} from 'styles/palette'
+import {dark, light} from 'styles/palette'
+
 const App = () => {
+  const [theme, setTheme] = React.useState(light)
   
   return (
-    <div className="App">
-      <ThemeProvider theme={dark}>
-        <CssBaseline />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Box className="App" bgcolor="background.main">
+
         <BrowserRouter>
           <ProvideAuth>
-            <Navbar />
+            <Navbar setTheme={setTheme}/>
 
             <Routes>
               <Route path="/" exact element={
@@ -38,8 +42,9 @@ const App = () => {
             </Routes>
           </ProvideAuth>
         </BrowserRouter>
-      </ThemeProvider>
-    </div>
+      
+      </Box>
+    </ThemeProvider>
   );
 }
 

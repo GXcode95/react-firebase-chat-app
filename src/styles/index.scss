@@ -4,28 +4,14 @@
   text-decoration: none;
   margin: 0;
 }
-body {
-  background-color: $color-1;
-}
-section {
-  max-width: 500px;
-  margin: 0 auto;
-  margin-top: 100px;
-  box-shadow: 1px 2px 10px $color-4;
-  padding: 10px 20px;
-  border-radius: 5px;
-}
 
-h3 {
-  text-align: center;
-  font-size: 20px;
-  color: $color-4;
-}
+
+
 
 
 input {
   color: $color-1;
 }
 a {
-  color: $color-2;
+  color: inherit;
 }

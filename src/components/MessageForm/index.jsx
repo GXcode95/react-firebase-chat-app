@@ -1,6 +1,7 @@
 import './style.scss'
 import React from 'react'
 import UploadIcon from '@mui/icons-material/Upload';
+import { Button } from '@mui/material'
 
 const MessageForm = ({ sendMessage, text, setText, setImage }) => {
 
@@ -23,7 +24,7 @@ const MessageForm = ({ sendMessage, text, setText, setImage }) => {
         />
       </div>
       <div>
-        <button className="btn">Send</button>
+        <Button variant="outlined" color="primary">Send</Button>
       </div>
     </form>
   )

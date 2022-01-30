@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import './style.scss'
-import CameraAltIcon from '@mui/icons-material/CameraAlt'
 import { storage, db } from 'services/firebase'
 import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage'
 import { doc, getDoc, updateDoc } from 'firebase/firestore'
 import { useAuth } from 'hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
 import Avatar from 'components/Avatar'
-import { Box } from '@mui/material'
+import { Box, Container, Typography } from '@mui/material'
 import Loading from 'components/Loading'
 import AvatarForm from 'components/AvatarForm'
 const Profile = () => {
@@ -19,7 +18,6 @@ const Profile = () => {
   useEffect(() => { // set user
     if(auth.user) {
       const getUserDoc = async () => {
-        console.log("auth", auth.user)
         try {
           const response = await getDoc(doc(db, "users", auth.user.uid))
           setUser(response.data())
@@ -62,22 +60,22 @@ const Profile = () => {
 
 
   return user ? (
-    <section className="Profile">
+    <Container className="Profile">
       <Box display='flex' alignItems="center">
 
-        <Box position="relative" margin="20px" >
+        <Box className="avatar-container" >
           <Avatar img={user.avatar} size="100px" />
           <AvatarForm setAvatar={setAvatar} />
         </Box>
         
-        <Box flex="1" sx={{textAlign: "center"}}>
-          <h3>{user.name}</h3>
-          <p>{user.email}</p>
-          <hr />
+        <Box flex="1" textAlign="center" pt={4}>
+          <Typography variant="h3" pb={4}>{user.name}</Typography>
+          <Typography variant="h5" component={"p"} pb={4}>{user.email}</Typography>
         </Box>
 
       </Box>
-    </section>
+      <hr />
+    </Container>
   ) : <Loading />
 };
 

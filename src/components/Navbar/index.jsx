@@ -2,26 +2,16 @@ import React from 'react'
 import { Link } from "react-router-dom"
 import { useAuth } from "hooks/useAuth"
 import { Box, Button } from "@mui/material"
-
+import './style.scss'
 const Navbar = () => {
   const auth  = useAuth()
-
-  const navStyle = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    height: "70px",
-    padding: "0 20px",
-    borderBottom: "1px solid",
-    borderColor: "grey.600"
-  }
 
   const handleLogout = async () => {
     auth.signout()
   }
 
   return (
-    <Box component="nav" sx={navStyle} >
+    <Box className="Navbar" component="nav" borderColor="grey.600" >
       <h3>
         <Link to="/">Messenger</Link>
       </h3>

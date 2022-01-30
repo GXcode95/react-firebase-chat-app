@@ -1,29 +1,17 @@
-@import "styles/variables";
-
-.profile_container {
-  display: flex;
-  align-items: center;
-}
-
 .Profile {
-
-
-  .overlay {
-    transition: 0.5s ease;
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
+  max-width: 700px;
   
-  &:hover{
-    img {
-      opacity: 0.2;
-    }
-    .overlay {
-      opacity:1;
+  .avatar_container{
+    position: relative;
+    margin: 20px;
+    
+    &:hover{
+      img {
+        opacity: 0.4;
+      }
+      .AvatarForm {
+        opacity:1;
+      }
     }  
   }
 

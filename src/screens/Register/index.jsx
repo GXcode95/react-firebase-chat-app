@@ -1,4 +1,3 @@
-import './style.scss'
 import React, { useState } from 'react'
 import { useAuth } from 'hooks/useAuth';
 import { Box, Container, Button, TextField, Typography} from '@mui/material'
@@ -35,8 +34,7 @@ const Register = () => {
       <Container 
       sx={{display:"flex", flexDirection: "column", alignItems:"center" }} 
       >
-      <h3>Create Acount</h3>
-      <Typography variant="h3" my={5}>Login</Typography>
+      <Typography variant="h3" my={5}>Register</Typography>
       <Box 
         component="form" 
         width="80%" 
