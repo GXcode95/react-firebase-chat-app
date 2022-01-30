@@ -14,7 +14,7 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import {dark, light} from 'styles/palette'
 
 const App = () => {
-  const [theme, setTheme] = React.useState(light)
+  const [theme, setTheme] = React.useState(dark)
   
   return (
     <ThemeProvider theme={theme}>
