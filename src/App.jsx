@@ -12,13 +12,15 @@ import { ProvideAuth } from 'hooks/useAuth.js'
 import { Box } from '@mui/material'
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import {dark, light} from 'styles/palette'
+import { ProvideTheme } from 'hooks/useTheme';
 
 const App = () => {
   const [theme, setTheme] = React.useState(dark)
   
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    // <ThemeProvider theme={theme}>
+    //   <CssBaseline />
+    <ProvideTheme>
       <Box className="App" bgcolor="background.main">
 
         <BrowserRouter>
@@ -44,7 +46,8 @@ const App = () => {
         </BrowserRouter>
       
       </Box>
-    </ThemeProvider>
+      {/* </ThemeProvider> */}
+    </ProvideTheme>
   );
 }
 

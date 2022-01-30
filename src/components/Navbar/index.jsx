@@ -11,7 +11,7 @@ const Navbar = () => {
   }
 
   return (
-    <Box className="Navbar" component="nav" borderColor="grey.600" >
+    <Box className="Navbar" component="nav" borderColor="secondary.main" >
       <h3>
         <Link to="/">Messenger</Link>
       </h3>

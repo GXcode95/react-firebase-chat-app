@@ -1,23 +1,24 @@
 import './style.scss'
 import React, { useRef, useEffect } from 'react'
 import Moment from 'react-moment'
+import { Box, Typography} from '@mui/material'
 
 const Message = ({message, userId}) => {
   const scrollRef = useRef()
-
+  const userIsOwner = message.from === userId
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth"})
   }, [message])
 
   return (
-    <div className={`Message ${message.from === userId ? "own" : ""}`} ref={scrollRef}>
-      <p className={message.from === userId ? "me" : "panpel"} style={{color: "white"}}>
+    <Box className={`Message ${ userIsOwner ? "own" : ""}`} ref={scrollRef} >
+      <Typography component="p" sx={{bgcolor: userIsOwner ? "message.main" : "message.penpal"}}>
         {message.media && <img src={message.media} alt={message.text} /> }
         {message.text}
         <br />
         <small><Moment fromNow>{message.createdAt.toDate()}</Moment></small>
-      </p>
-    </div>
+      </Typography>
+    </Box>
   )
 }
     

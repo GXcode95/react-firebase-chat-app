@@ -2,7 +2,7 @@ import './style.scss'
 import React, { useEffect, useState} from 'react'
 import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from 'services/firebase'
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import Avatar from 'components/Avatar'
 import LastMessage from 'components/LastMessage'
 
@@ -25,7 +25,7 @@ const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
 
   return (
     <Box className="Contact" 
-      bgcolor={ active && "grey.600"} 
+      bgcolor={ active && "background.alt"} 
     >
       {/*********************
        **  Full Size Card  **
@@ -38,7 +38,7 @@ const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
           <p className="contact-name">
             {contact.name}
           </p>
-          { isNewMessage && <small className='unread'>New</small> }
+          { isNewMessage && <Typography sx={{bgcolor: "info.main"}}className='unread'>New</Typography> }
         </Box>
          <LastMessage text={data?.text} isAuthor={userIsAuthor} /> 
       </Box>

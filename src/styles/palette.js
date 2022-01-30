@@ -1,10 +1,20 @@
 import {createTheme} from '@mui/material'
 
+
+const themeComponent = {
+  MuiButton: {
+    styleOverrides: {
+      root: {
+        textTransform: "none",
+      },
+    },
+  }, 
+}
 export const light = createTheme({
   palette: {
     mode: 'light',
     // primary: {
-    //   main: '#283845', // original from logo : #11bed8
+    //   main: '#283845',
     // },
     // secondary: {
     //   main: '#109eb3',
@@ -32,38 +42,35 @@ export const light = createTheme({
     //   main: "#cecece"
     // },
   },
-  
+  components: themeComponent
 });
 
 export const dark = createTheme({
   palette: {
     mode: 'dark',
+    primary: {
+      main: "#45806e"
+    },
+    secondary: {
+      main: "#f576a0"
+    },
+    message: {
+      main: "#f576a0",
+      penpal: "#168c3e"
+    },
+    success: {
+      main: '#34eb58',
+    },
+    error: {
+      main: "#eb3434"
+    },
+    info: {
+      main: '#4db3bd',
+    },
     background: {
-      main: '#242424'
+      main: '#242424',
+      alt: "#f576a0"
     }
   },
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          textTransform: "none",
-        },
-      },
-      defaultProps: {
-        variant: "contained",
-        color: "primary",
-        disableRipple: true
-      }
-    }, 
-    MuiCardActionArea: {
-      defaultProps: {
-        disableRipple: true
-      }
-    },
-    MuiListItemButton: {
-      defaultProps: {
-        disableRipple: true
-      }
-    },
-  },
+  components: themeComponent
 });

@@ -53,7 +53,7 @@ const Register = () => {
             margin="normal"
             fullWidth
             required
-            autofocus
+            autoFocus
             onChange={handleChange}
             InputProps={{style: {fontSize: "22px", padding: " 5px 0"}}}
           />
