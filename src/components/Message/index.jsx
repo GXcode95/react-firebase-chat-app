@@ -12,7 +12,7 @@ const Message = ({message, userId}) => {
 
   return (
     <Box className={`Message ${ userIsOwner ? "own" : ""}`} ref={scrollRef} >
-      <Typography component="p" sx={{bgcolor: userIsOwner ? "message.main" : "message.penpal"}}>
+      <Typography component="p" sx={{bgcolor: userIsOwner ? "primary.main" : "secondary.main"}}>
         {message.media && <img src={message.media} alt={message.text} /> }
         {message.text}
         <br />

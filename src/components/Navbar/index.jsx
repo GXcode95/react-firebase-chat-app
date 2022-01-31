@@ -15,13 +15,13 @@ const Navbar = () => {
   }
 
   return (
-    <Box className="Navbar" component="nav" borderColor="secondary.main" >
+    <Box className="Navbar" component="nav" borderColor="primary.main" >
       <div>
         <h3>
           <Link to="/">Messenger</Link>
         </h3>
       </div>
-      <Stack direction="row">
+      <Stack direction="row" spacing={1}>
         <Button variant="contained" onClick={e => selectTheme(0)}>pink</Button>
         <Button variant="contained" onClick={e => selectTheme(1)}>green</Button>
         <Button variant="contained" onClick={e => selectTheme(2)}>red</Button>

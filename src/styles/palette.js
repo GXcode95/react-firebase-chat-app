@@ -23,70 +23,40 @@ const themeComponent = {
   //   }
   // }
 }
+const darkBasePalette = {
+  mode: 'dark',
+  success: {
+    main: '#00ff59',
+  },
+  error: {
+    main: "#eb3434"
+  },
+  background: {
+    paper: '#242424',
+    default: "#121212",
+    gradient: "radial-gradient(circle, #232222, #1c1b1b, #151515, #0c0c0c, #000000)"
+  }
+}
 export const light = createTheme({
   palette: {
     mode: 'light',
-    // primary: {
-    //   main: '#283845',
-    // },
-    // secondary: {
-    //   main: '#109eb3',
-    //   light: '#26A7B8',
-    // },
-    // error: {
-    //   main: '#ff3a3a',
-    // },
-    // info: {
-    //   main: '#f576a0',
-    // },
-    // warning: {
-    //   main: '#8622c3',
-    // },
-    // success: {
-    //   main: '#43a047',
-    // },
-    // white: {
-    //   main: "#fff"
-    // },
-    // black: {
-    //   main: "#000"
-    // },
-    // grey: {
-    //   main: "#cecece"
-    // },
+  
   },
   components: themeComponent
 });
 
 export const dark = createTheme({
   palette: {
-    mode: 'dark',
+    ...darkBasePalette,
     primary: {
-      main: "#45806e"
-    },
-    secondary: {
       main: "#f576a0"
     },
-    message: {
-      main: "#f576a0",
-      penpal: "#4790c4"
-    },
-    success: {
-      main: '#34eb58',
-    },
-    error: {
-      main: "#eb3434"
+    secondary: {
+      main: "#8320c9"
     },
     info: {
-      main: '#4db3bd',
+      main: '#aa39cc',
     },
-    background: {
-      paper: '#242424',
-      default: "#121212",
-      alt: "#f576a0",
-      gradient: "radial-gradient(circle, #232222, #1c1b1b, #151515, #0c0c0c, #000000)"
-      
-    }
   },
   components: themeComponent
 });
@@ -94,65 +64,38 @@ export const dark = createTheme({
 
 export const darkGreen = createTheme({
   palette: {
-    mode: 'dark',
+    ...darkBasePalette,
     primary: {
-      main: "#00ff2f"
-    },
-    secondary: {
       main: "#149c44"
     },
-    message: {
-      main: "#149c44",
-      penpal: "#8320c9"
+    secondary: {
+      main: "#4790c4"
     },
     success: {
-      main: '#00ff59',
-    },
-    error: {
-      main: "#eb3434"
+      main: '#2c81a3',
     },
     info: {
-      main: '#5f388c',
+      main: '#45bbbf',
     },
-    background: {
-      paper: '#242424',
-      default: "#121212",
-      alt: "#149c44",
-      gradient: "radial-gradient(circle, #232222, #1c1b1b, #151515, #0c0c0c, #000000)"   
-    }
   },
   components: themeComponent
 });
 
 export const darkRed = createTheme({
   palette: {
-    mode: 'dark',
+    ...darkBasePalette,
     primary: {
-      main: "#45806e"
-    },
-    secondary: {
       main: "#b03030"
     },
-    message: {
-      main: "#b03030",
-      penpal: "#c4852b"
-    },
-    success: {
-      main: '#00ff59',
+    secondary: {
+      main: "#8db828"
     },
     error: {
-      main: "#7a7a7a"
+      main: "#e39c22"
     },
     info: {
-      main: '#c1d10d',
+      main: '#533669',
     },
-    background: {
-      paper: '#242424',
-      default: "#121212",
-      alt: "#b03030",
-      gradient: "radial-gradient(circle, #232222, #1c1b1b, #151515, #0c0c0c, #000000)"
-      
-    }
   },
   components: themeComponent
 });

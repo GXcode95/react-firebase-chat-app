@@ -25,7 +25,7 @@ const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
 
   return (
     <Box className="Contact" 
-      bgcolor={ active && "background.alt"} 
+      bgcolor={ active && "primary.main"} 
     >
       {/*********************
        **  Full Size Card  **

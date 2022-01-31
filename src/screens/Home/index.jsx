@@ -110,7 +110,7 @@ const Home = () => {
       <Box className="i-scroll contact-list-container"
         flex={{xs: "0.15", md:"0.25"}} 
         borderRight="2px solid"
-        borderColor="secondary.main"
+        borderColor="primary.main"
       >
         {contacts.map( contact =>
            <Contact 
@@ -126,7 +126,7 @@ const Home = () => {
       <Box className="messages-container" flex="1">
         {penpal ? 
           <>
-            <Box className="i-scroll messages" borderBottom="1px solid" borderColor="secondary.main" >
+            <Box className="i-scroll messages" borderBottom="1px solid" borderColor="primary.main" >
               {messages && messages.map((message, i) => 
                 <Message key={i} message={message} userId={auth.user.uid} />
               )}
