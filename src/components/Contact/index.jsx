@@ -1,14 +1,18 @@
 import './style.scss'
-import React, { useEffect, useState} from 'react'
+import React, { useContext, useEffect, useState} from 'react'
 import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from 'services/firebase'
 import { Box, Typography } from '@mui/material'
 import Avatar from 'components/Avatar'
 import LastMessage from 'components/LastMessage'
+import { keyframes } from '@emotion/react'
+import { ThemeContext } from 'context/theme'
+
+
 
 const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
   const [data, setData] = useState()
-
+  const {theme} = useContext(ThemeContext)
   const active = contact.uid === penpal.uid
   const isNewMessage = data?.from !== user.uid && data?.unread 
   const userIsAuthor = data?.from === user.uid
@@ -23,9 +27,26 @@ const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
     }
   }, [chatId])
 
+
+  const blink = keyframes({
+    "0%": {
+      backgroundColor: "transparent",
+    },
+    "50%": {
+      backgroundColor: "transparent",
+    },
+    "51%": {
+      backgroundColor: theme.palette.secondary.main,
+    },
+    "100%": {
+      backgroundColor: theme.palette.secondary.main,
+    }
+  })
+
   return (
-    <Box className="Contact" 
-      bgcolor={ active && "primary.main"} 
+    <Box 
+    className={`Contact`} sx={isNewMessage && {animation: `${blink} 1s infinite`}}
+    bgcolor={ active && "primary.main"} 
     >
       {/*********************
        **  Full Size Card  **
@@ -38,7 +59,6 @@ const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
           <p className="contact-name">
             {contact.name}
           </p>
-          { isNewMessage && <Typography sx={{bgcolor: "info.main"}}className='unread'>New</Typography> }
         </Box>
          <LastMessage text={data?.text} isAuthor={userIsAuthor} /> 
       </Box>
