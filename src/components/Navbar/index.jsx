@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
 import { Link } from "react-router-dom"
 import { useAuth } from "hooks/useAuth"
-import { Box, Button, Stack, Typography } from "@mui/material"
+import { Box, Button, IconButton, Stack, Typography } from "@mui/material"
 import { ThemeContext } from 'context/theme';
+import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 
 import './style.scss'
 
@@ -16,11 +17,11 @@ const Navbar = () => {
 
   return (
     <Box className="Navbar" component="nav" borderColor="primary.main" >
-      <Box>
+      <div className="scale-hover">
         <Typography variant="h5" color="primary">
           <Link to="/">Chat</Link>
         </Typography>
-      </Box>
+      </div>
       <Stack direction="row" spacing={1}>
         <Button variant="contained" onClick={e => selectTheme(0)}>pink</Button>
         <Button variant="contained" onClick={e => selectTheme(1)}>green</Button>
@@ -30,9 +31,12 @@ const Navbar = () => {
         {auth.user ? 
           <>
             <Link to="/profile">Profile</Link>
-            <Button variant="outlined" color="error" onClick={handleLogout}>
-              Logout
-            </Button>
+            <IconButton className="power-btn scale-hover" 
+              onClick={handleLogout} 
+              disableRipple
+            >
+              <PowerSettingsNewIcon color="error"/>
+            </IconButton>
           </>
           :
           <>

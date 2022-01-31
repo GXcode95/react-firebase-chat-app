@@ -27,3 +27,9 @@
   scrollbar-width: none; /* Firefox */
   overflow: scroll;
 }
+.scale-hover {
+  transition: 0.3s;
+  &:hover {
+    transform: scale(1.1);
+  }
+}

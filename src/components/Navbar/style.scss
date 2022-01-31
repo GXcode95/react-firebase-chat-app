@@ -6,4 +6,14 @@
   padding: 0 20px;
   border-bottom: 1px solid;
 
+
+  .power-btn {
+    opacity: 0.6;
+    transition: opacity 0.2s;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+
 }
