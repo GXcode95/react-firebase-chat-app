@@ -1,7 +1,7 @@
 import './style.scss'
 import React from 'react'
 import UploadIcon from '@mui/icons-material/Upload';
-import { Box, Button } from '@mui/material'
+import { Box, Button, IconButton } from '@mui/material'
 
 const ENTER_KEY = 13
 
@@ -15,7 +15,7 @@ const MessageForm = ({ sendMessage, text, setText, setImage }) => {
   return (
     <form className='MessageForm'>
       <Box width="50px" display="flex" alignItems="center" justifyContent="center">
-        <label htmlFor="img"><UploadIcon/></label>
+        <label htmlFor="image"><IconButton><UploadIcon color="primary" /></IconButton></label>
         <input 
           type="file"
           id="image"

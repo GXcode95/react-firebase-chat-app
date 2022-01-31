@@ -123,7 +123,7 @@ const Home = () => {
           /> 
         )}
       </Box>
-      <Box className="messages-container" flex="1">
+      <Box className="messages-container" maxWidth={{xs: "85vw", md: "75vw"}}>
         {penpal ? 
           <>
             <Box className="i-scroll messages" borderBottom="1px solid" borderColor="primary.main" >

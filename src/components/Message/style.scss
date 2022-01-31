@@ -3,7 +3,8 @@
 .Message {
   margin-top: 5px;
   padding: 0 5px;
-
+  animation: 0.3s fade-in;
+  opacity: 1;
   &.own {
     text-align: right;
   }
@@ -26,5 +27,14 @@
       margin-top: 15px;
       opacity: 0.8;
     }
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

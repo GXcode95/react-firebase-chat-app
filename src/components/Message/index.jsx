@@ -15,7 +15,7 @@ const Message = ({message, userId}) => {
       <Typography component="p" sx={{bgcolor: userIsOwner ? "primary.main" : "secondary.main"}}>
         {message.media && <img src={message.media} alt={message.text} /> }
         {message.text}
-        <br />
+        <br />  
         <small><Moment fromNow>{message.createdAt.toDate()}</Moment></small>
       </Typography>
     </Box>

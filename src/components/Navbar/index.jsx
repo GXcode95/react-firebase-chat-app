@@ -1,14 +1,14 @@
 import React, { useContext } from 'react'
 import { Link } from "react-router-dom"
 import { useAuth } from "hooks/useAuth"
-import { Box, Button, Stack } from "@mui/material"
+import { Box, Button, Stack, Typography } from "@mui/material"
 import { ThemeContext } from 'context/theme';
 
 import './style.scss'
 
 const Navbar = () => {
   const auth  = useAuth()
-  const { theme, selectTheme } = useContext(ThemeContext)
+  const { selectTheme } = useContext(ThemeContext)
 
   const handleLogout = async () => {
     auth.signout()
@@ -16,11 +16,11 @@ const Navbar = () => {
 
   return (
     <Box className="Navbar" component="nav" borderColor="primary.main" >
-      <div>
-        <h3>
-          <Link to="/">Messenger</Link>
-        </h3>
-      </div>
+      <Box>
+        <Typography variant="h5" color="primary">
+          <Link to="/">Chat</Link>
+        </Typography>
+      </Box>
       <Stack direction="row" spacing={1}>
         <Button variant="contained" onClick={e => selectTheme(0)}>pink</Button>
         <Button variant="contained" onClick={e => selectTheme(1)}>green</Button>
