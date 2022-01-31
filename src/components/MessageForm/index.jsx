@@ -3,10 +3,17 @@ import React from 'react'
 import UploadIcon from '@mui/icons-material/Upload';
 import { Box, Button } from '@mui/material'
 
+const ENTER_KEY = 13
+
 const MessageForm = ({ sendMessage, text, setText, setImage }) => {
 
+  const handleKeydown = (e) => {
+    if (e.keyCode === ENTER_KEY && !e.shiftKey) sendMessage()
+    else console.log(e)
+  }
+
   return (
-    <form className='MessageForm' onSubmit={sendMessage}>
+    <form className='MessageForm'>
       <Box width="50px" display="flex" alignItems="center" justifyContent="center">
         <label htmlFor="img"><UploadIcon/></label>
         <input 
@@ -20,9 +27,10 @@ const MessageForm = ({ sendMessage, text, setText, setImage }) => {
       <textarea
         placeholder="Enter your message ..."
         value={text}
+        onKeyDown={handleKeydown}
         onChange={e => setText((e.target.value))}
       />
-      <Button variant="outlined" type="submit" color="primary" className="send-btn">Send</Button>
+      <Button variant="outlined" onClick={sendMessage} color="primary" className="send-btn">Send</Button>
     </form>
   )
 }

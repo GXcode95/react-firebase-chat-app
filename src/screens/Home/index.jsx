@@ -14,8 +14,8 @@ const Home = () => {
   const auth = useAuth()
   const [contacts ,setContacts] = useState([])
   const [penpal, setPenpal] = useState("")
-  const [text, setText] = useState("")
-  const [image, setImage] = useState("")
+  const [text, setText] = useState()
+  const [image, setImage] = useState()
   const [messages, setMessages] = useState()
 
   const selectPenpal = async (contact) => {
@@ -48,9 +48,8 @@ const Home = () => {
     return user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`
   }
 
-  const sendMessage = async (e) => {
-    e.preventDefault()
-
+  const sendMessage = async () => {
+    if( !text && !image) return
     const chatId = generateChatID(auth.user.uid, penpal.uid)
     
     try  {
