@@ -15,7 +15,9 @@ const MessageForm = ({ sendMessage, text, setText, setImage }) => {
   return (
     <form className='MessageForm'>
       <Box width="50px" display="flex" alignItems="center" justifyContent="center">
-        <label htmlFor="image"><IconButton><UploadIcon color="primary" /></IconButton></label>
+        <label htmlFor="image" className='scale-hover'>
+          <UploadIcon color="primary" />
+        </label>
         <input 
           type="file"
           id="image"
