@@ -127,18 +127,20 @@ const Home = () => {
       <Box className="messages-container" flex="1">
         {penpal ? 
           <>
-            <Box className="i-scroll messages" borderColor="secondary.main">
+            <Box className="i-scroll messages" borderBottom="1px solid" borderColor="secondary.main" >
               {messages && messages.map((message, i) => 
                 <Message key={i} message={message} userId={auth.user.uid} />
               )}
             </Box>
             
-            <MessageForm 
-              text={text}
-              setImage={setImage}
-              setText={setText} 
-              sendMessage={sendMessage} 
-            />
+            <Box className="message-form-container">
+              <MessageForm 
+                text={text}
+                setImage={setImage}
+                setText={setText} 
+                sendMessage={sendMessage} 
+              />
+            </Box>
           </>
           :
           <Typography variant="h5" component="h3" align="center">

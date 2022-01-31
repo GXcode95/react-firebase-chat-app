@@ -13,8 +13,12 @@
   }
 
   .messages {
-    height: calc(100vh - 160px);
-    border-bottom: 2px solid;
+    height: calc(100vh - 170px);
+    
+  }
+
+  .message-form-container {
+    height: 100px;
   }
 }
 

@@ -9,6 +9,19 @@ const themeComponent = {
       },
     },
   }, 
+  // MuiCssBaseline: {
+  //   styleOverrrides: {
+
+  //     '@global': {
+  //       root: {
+  //         background: 'red',
+  //         // background: 'linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%)',
+  //         backgroundRepeat: "no-repeat",
+  //         backgroundAttachment: "fixed",
+  //       }
+  //     }
+  //   }
+  // }
 }
 export const light = createTheme({
   palette: {
@@ -56,7 +69,7 @@ export const dark = createTheme({
     },
     message: {
       main: "#f576a0",
-      penpal: "#168c3e"
+      penpal: "#4790c4"
     },
     success: {
       main: '#34eb58',
@@ -68,8 +81,77 @@ export const dark = createTheme({
       main: '#4db3bd',
     },
     background: {
-      main: '#242424',
-      alt: "#f576a0"
+      paper: '#242424',
+      default: "#121212",
+      alt: "#f576a0",
+      gradient: "radial-gradient(circle, #232222, #1c1b1b, #151515, #0c0c0c, #000000)"
+      
+    }
+  },
+  components: themeComponent
+});
+
+
+export const darkGreen = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: "#00ff2f"
+    },
+    secondary: {
+      main: "#149c44"
+    },
+    message: {
+      main: "#149c44",
+      penpal: "#8320c9"
+    },
+    success: {
+      main: '#00ff59',
+    },
+    error: {
+      main: "#eb3434"
+    },
+    info: {
+      main: '#5f388c',
+    },
+    background: {
+      paper: '#242424',
+      default: "#121212",
+      alt: "#149c44",
+      gradient: "radial-gradient(circle, #232222, #1c1b1b, #151515, #0c0c0c, #000000)"   
+    }
+  },
+  components: themeComponent
+});
+
+export const darkRed = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: "#45806e"
+    },
+    secondary: {
+      main: "#b03030"
+    },
+    message: {
+      main: "#b03030",
+      penpal: "#c4852b"
+    },
+    success: {
+      main: '#00ff59',
+    },
+    error: {
+      main: "#7a7a7a"
+    },
+    info: {
+      main: '#c1d10d',
+    },
+    background: {
+      paper: '#242424',
+      default: "#121212",
+      alt: "#b03030",
+      gradient: "radial-gradient(circle, #232222, #1c1b1b, #151515, #0c0c0c, #000000)"
+      
     }
   },
   components: themeComponent
