@@ -1,22 +1,21 @@
 import React, { createContext, useState } from 'react'
 import { ThemeProvider } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
-import {dark, darkGreen, darkRed, glass3, glass, glass2} from 'styles/palette'
-const themes = [dark,darkGreen,darkRed,glass, glass2, glass3]
+import { themes } from 'styles/palette'
+
 export const ThemeContext = createContext()
 
 const ThemeContextProvider = (props) => {
-  const [theme,setTheme] = useState(glass)
+  const [theme,setTheme] = useState(themes.ocean.theme) // default theme
 
-  const selectTheme = (themeNum) => {
-    setTheme(themes[themeNum])
+  const selectTheme = (themeName) => {
+    setTheme(themes[themeName].theme)
   }
 
   return (
     <ThemeContext.Provider value={{theme, selectTheme}}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-
         {props.children}
       </ThemeProvider>
     </ThemeContext.Provider>
