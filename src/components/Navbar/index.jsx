@@ -4,13 +4,15 @@ import { useAuth } from "hooks/useAuth"
 import { Box, Button, IconButton, Stack, Typography } from "@mui/material"
 import { ThemeContext } from 'context/theme';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import { useNavigate } from 'react-router-dom'
 
 import './style.scss'
 
 const Navbar = () => {
   const auth  = useAuth()
   const { selectTheme } = useContext(ThemeContext)
-
+  const navigate = useNavigate()
   const handleLogout = async () => {
     auth.signout()
   }
@@ -31,8 +33,13 @@ const Navbar = () => {
       <Box display="flex" gap="20px" alignItems="center">
         {auth.user ? 
           <>
-            <Link to="/profile">Profile</Link>
-            <IconButton className="power-btn scale-hover" 
+            <IconButton className="highlight-hover scale-hover" 
+              onClick={e => navigate("/profile")} 
+              disableRipple
+            >
+              <ManageAccountsIcon />
+            </IconButton>
+            <IconButton className="highlight-hover scale-hover" 
               onClick={handleLogout} 
               disableRipple
             >
@@ -44,7 +51,7 @@ const Navbar = () => {
             <Link to="/register">Register</Link>
             <Link to="/login">Login</Link>
           </>
-      }
+        }
       </Box>
     </Box>
   )
