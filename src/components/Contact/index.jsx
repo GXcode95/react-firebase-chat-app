@@ -14,7 +14,7 @@ const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
   const [data, setData] = useState()
   const {theme} = useContext(ThemeContext)
   const active = contact.uid === penpal.uid
-  const isNewMessage = data?.from !== user.uid && data?.unread 
+  const newMessageAnimation = ( data?.from !== user.uid && data?.unread ) ? {animation: `${blink} 1s infinite`} : {}
   const userIsAuthor = data?.from === user.uid
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
 
   return (
     <Box 
-    className={`Contact ${active && theme.glass && 'glassmorph'}`} sx={isNewMessage && {animation: `${blink} 1s infinite`}}
+    className={`Contact ${active && theme.glass && 'glassmorph'}`} sx={newMessageAnimation}
     bgcolor={ active && !theme.glass && "primary.main"} 
     >
       {/*********************
