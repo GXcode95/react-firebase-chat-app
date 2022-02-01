@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState, useLayoutEffect} from 'react'
 import { ThemeProvider } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import { themes } from 'styles/theme'
@@ -10,7 +10,13 @@ const ThemeContextProvider = (props) => {
 
   const selectTheme = (themeName) => {
     setTheme(themes[themeName].theme)
+    localStorage.setItem('userTheme', themeName)
   }
+
+  useLayoutEffect(()=> {
+    const userTheme = localStorage.getItem('userTheme')
+    if (userTheme) selectTheme(userTheme)
+  }, [])
 
   return (
     <ThemeContext.Provider value={{theme, selectTheme}}>

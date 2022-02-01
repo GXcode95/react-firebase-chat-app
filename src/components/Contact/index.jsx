@@ -2,13 +2,11 @@ import './style.scss'
 import React, { useContext, useEffect, useState} from 'react'
 import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from 'services/firebase'
-import { Box, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import Avatar from 'components/Avatar'
 import LastMessage from 'components/LastMessage'
 import { keyframes } from '@emotion/react'
 import { ThemeContext } from 'context/theme'
-
-
 
 const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
   const [data, setData] = useState()
