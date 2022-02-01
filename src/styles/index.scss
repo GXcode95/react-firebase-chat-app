@@ -4,7 +4,11 @@
   text-decoration: none;
   margin: 0;
 }
-
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
 input {
   color: $color-1;
 }

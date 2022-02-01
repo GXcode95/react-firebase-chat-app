@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import 'styles/App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from 'screens/Home';
@@ -6,13 +6,13 @@ import NotFound from 'screens/NotFound';
 import Navbar from 'components/Navbar';
 import Register from 'screens/Register';
 import Login from 'screens/Login';
-import PrivateRoute from 'components/PrivateRoute';
+// import PrivateRoute from 'components/PrivateRoute';
 import Profile from 'screens/Profile';
 import { ProvideAuth } from 'hooks/useAuth.js'
 import { Box } from '@mui/material'
-import { ThemeProvider, CssBaseline } from '@mui/material';
-import {dark, light} from 'styles/theme'
 import { ThemeContext } from 'context/theme';
+import 'styles/stars.scss'
+import BackgroundAnimation from 'components/BackgroundAnimation'
 
 const App = () => {
   const { theme } = useContext(ThemeContext)
@@ -20,6 +20,7 @@ const App = () => {
   return (
       <Box className="App" sx={{background: bgGradient}}>
 
+        <BackgroundAnimation />
         <BrowserRouter>
           <ProvideAuth>
             <Navbar/>
