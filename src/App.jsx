@@ -11,7 +11,6 @@ import Profile from 'screens/Profile';
 import { ProvideAuth } from 'hooks/useAuth.js'
 import { Box } from '@mui/material'
 import { ThemeContext } from 'context/theme';
-import 'styles/stars.scss'
 import BackgroundAnimation from 'components/BackgroundAnimation'
 
 const App = () => {
