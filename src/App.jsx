@@ -11,7 +11,7 @@ import Profile from 'screens/Profile';
 import { ProvideAuth } from 'hooks/useAuth.js'
 import { Box } from '@mui/material'
 import { ThemeProvider, CssBaseline } from '@mui/material';
-import {dark, light} from 'styles/palette'
+import {dark, light} from 'styles/theme'
 import { ThemeContext } from 'context/theme';
 
 const App = () => {
