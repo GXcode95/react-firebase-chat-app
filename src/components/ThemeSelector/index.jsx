@@ -12,6 +12,8 @@ const { selectTheme } = useContext(ThemeContext)
       <Button variant="contained" onClick={e => selectTheme(1)}>green</Button>
       <Button variant="contained" onClick={e => selectTheme(2)}>red</Button>
       <Button variant="contained" onClick={e => selectTheme(3)}>glassmorph</Button>
+      <Button variant="contained" onClick={e => selectTheme(4)}>glassmorph2</Button>
+      <Button variant="contained" onClick={e => selectTheme(5)}>glass lakers</Button>
     </Stack>
   )
 }

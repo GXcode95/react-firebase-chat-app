@@ -49,14 +49,15 @@ export const dark = createTheme({
   palette: {
     ...darkBasePalette,
     primary: {
-      main: "#f576a0"
+      main: "#f576a0",
+      alt: "rgba(245, 118, 160, 0.7)"
     },
     secondary: {
       main: "#8320c9"
     },
     messages: {
-      main: "#f576a0",
-      penpal: "#8320c9"
+      main: "rgba(245, 118, 160, 0.7)",
+      penpal: "rgba(131, 32, 201, 0.7)"
     },
     info: {
       main: '#aa39cc',
@@ -70,14 +71,15 @@ export const darkGreen = createTheme({
   palette: {
     ...darkBasePalette,
     primary: {
-      main: "#149c44"
+      main: "#149c44",
+      alt: "rgba(20, 156, 68, 0.7)"
     },
     secondary: {
       main: "#4790c4"
     },
     messages: {
-      main: "#149c44",
-      penpal: "#4790c4"
+      main: "rgba(20, 156, 68, 0.7)",
+      penpal: "rgba(71, 144, 196, 0.7)"
     },
     success: {
       main: '#2c81a3',
@@ -93,14 +95,15 @@ export const darkRed = createTheme({
   palette: {
     ...darkBasePalette,
     primary: {
-      main: "#b03030"
+      main: "#b03030",
+      alt: "rgba(176, 48, 48, 0.7)"
     },
     secondary: {
       main: "#8db828"
     },
     messages: {
-      main: "#b03030",
-      penpal: "#8db828"
+      main: "rgba(176, 48, 48, 0.7)",
+      penpal: "rgba(141, 184, 40, 0.7)"
     },
     error: {
       main: "#e39c22"
@@ -118,13 +121,14 @@ export const glass = createTheme({
     mode: 'dark',
     primary:{
       main: "#fff",
+      alt: '#fff'
     },
     secondary: {
       main: "rgba(255, 0, 0, 0.32)",
     },
     messages: {
-      main: "rgba(103, 185, 223, 0.42)",
-      penpal: "rgba(223, 255, 69, 0.32)"
+      main: "rgba(255, 255, 255, 0.12)",
+      penpal: "rgba(235, 59, 126, 0.12)",
     },
     success: {
       main: '#00ff59',
@@ -135,8 +139,71 @@ export const glass = createTheme({
     background: {
       paper: '#242424',
       default: "#121212",
-      gradient: "linear-gradient(to right top, #6b9cd1, #799cdd, #8e9ae6, #a796eb, #c290eb, #dc8bdd, #f087cc, #ff85ba, #ff8f9c, #ffa47d, #ffc165, #fbe05f)",
+      gradient: "linear-gradient(to right top, #da8e54, #e7755f, #e95c78, #db4e9a, #b551be)",
     }
   },
   components: themeComponent
 });
+
+export const glass2 = createTheme({
+  glass: true,
+  palette: {
+    mode: 'dark',
+    primary:{
+      main: "#fff",
+    },
+    secondary: {
+      main: "rgba(255, 0, 0, 0.32)",
+    },
+    messages: {
+      main: "rgba(75, 115, 237, 0.22)",
+      penpal: "rgba(75, 237, 109, 0.42)",
+    },
+    success: {
+      main: '#00ff59',
+    },
+    error: {
+      main: "#eb3434"
+    },
+    background: {
+      paper: '#242424',
+      default: "#121212",
+      gradient: "radial-gradient(circle, #15bc98, #00aebb, #009be4, #0080fb, #1254eb)",
+    }
+  },
+  components: themeComponent
+});
+
+export const glass3 = createTheme({
+  glass: true,
+  palette: {
+    mode: 'dark',
+    primary:{
+      main: "#fff",
+    },
+    secondary: {
+      main: "rgba(255, 0, 0, 0.32)",
+    },
+    messages: {
+      main: "rgba(70, 7, 125, 0.72)",
+      penpal: "rgba(201, 200, 8, 0.62)",
+    },
+    success: {
+      main: '#00ff59',
+    },
+    error: {
+      main: "#eb3434"
+    },
+    background: {
+      paper: '#242424',
+      default: "#121212",
+      gradient: "linear-gradient(to bottom right,rgb(173, 59, 235),rgb(79, 10, 116) 50%,rgb(226, 124, 7) 51%,rgb(251, 255, 17))",
+    }
+  },
+  components: themeComponent
+});
+
+
+//! violet
+// penpal: "rgba(222, 99, 235, 0.72)"
+

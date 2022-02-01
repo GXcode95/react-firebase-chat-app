@@ -17,7 +17,7 @@ const Navbar = () => {
   }
 
   return (
-    <Box className="Navbar" component="nav" borderColor="primary.main" >
+    <Box className="Navbar glass" component="nav" borderColor="primary.main" >
       <div className="scale-hover">
         <Typography variant="h5" className="highlight-hover" color="primary">
           <Link to="/">Chat</Link>

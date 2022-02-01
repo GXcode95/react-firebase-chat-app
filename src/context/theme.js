@@ -1,8 +1,8 @@
 import React, { createContext, useState } from 'react'
-import { createTheme, ThemeProvider } from '@mui/material';
+import { ThemeProvider } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
-import {dark, darkGreen, darkRed, light, glass} from 'styles/palette'
-const themes = [dark,darkGreen,darkRed,glass]
+import {dark, darkGreen, darkRed, glass3, glass, glass2} from 'styles/palette'
+const themes = [dark,darkGreen,darkRed,glass, glass2, glass3]
 export const ThemeContext = createContext()
 
 const ThemeContextProvider = (props) => {

@@ -46,7 +46,7 @@ const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
   return (
     <Box 
     className={`Contact ${active && theme.glass && 'glassmorph'}`} sx={newMessageAnimation}
-    bgcolor={ active && !theme.glass && "primary.main"} 
+    bgcolor={ active && !theme.glass && "primary.alt"} 
     >
       {/*********************
        **  Full Size Card  **
