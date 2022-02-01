@@ -13,7 +13,11 @@ const ThemeSelector = () => {
         To add a theme just create it in in the styles/theme.js file.
       */}
       {Object.entries(themes).map(entry => 
-        <Button key={entry[0]} variant="contained" onClick={e => selectTheme(entry[1].name)}> 
+        <Button className="capitalize"
+          key={entry[0]} 
+          variant="contained" 
+          onClick={e => selectTheme(entry[1].name)}
+        > 
           {entry[1].name}
         </Button>
       )}

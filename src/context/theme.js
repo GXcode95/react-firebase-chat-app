@@ -6,7 +6,7 @@ import { themes } from 'styles/theme'
 export const ThemeContext = createContext()
 
 const ThemeContextProvider = (props) => {
-  const [theme,setTheme] = useState(themes.ocean.theme) // default theme
+  const [theme,setTheme] = useState(themes.ocean.theme) // default theme here
 
   const selectTheme = (themeName) => {
     setTheme(themes[themeName].theme)
