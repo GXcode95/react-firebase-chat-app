@@ -14,20 +14,7 @@ const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
   const [data, setData] = useState()
   const {theme} = useContext(ThemeContext)
   const active = contact.uid === penpal.uid
-  const newMessageAnimation = ( data?.from !== user.uid && data?.unread ) ? {animation: `${blink} 1s infinite`} : {}
   const userIsAuthor = data?.from === user.uid
-
-  useEffect(() => {
-    if(chatId){
-      const unsubscribe = onSnapshot(doc(db, 'lastMessage', chatId), (doc) => {
-        setData(doc.data())
-      })
-    
-      return () => unsubscribe()
-    }
-  }, [chatId])
-
-
   const blink = keyframes({
     "0%": {
       backgroundColor: "transparent",
@@ -42,6 +29,20 @@ const Contact = ({chatId, contact, penpal, selectPenpal, user}) => {
       backgroundColor: theme.palette.secondary.main,
     }
   })
+  const newMessageAnimation = ( data?.from !== user.uid && data?.unread ) ? {animation: `${blink} 1s infinite`} : {}
+
+  useEffect(() => {
+    if(chatId){
+      const unsubscribe = onSnapshot(doc(db, 'lastMessage', chatId), (doc) => {
+        setData(doc.data())
+      })
+    
+      return () => unsubscribe()
+    }
+  }, [chatId])
+
+
+
 
   return (
     <Box 
