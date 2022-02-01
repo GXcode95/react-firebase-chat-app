@@ -26,6 +26,7 @@ const Navbar = () => {
         <Button variant="contained" onClick={e => selectTheme(0)}>pink</Button>
         <Button variant="contained" onClick={e => selectTheme(1)}>green</Button>
         <Button variant="contained" onClick={e => selectTheme(2)}>red</Button>
+        <Button variant="contained" onClick={e => selectTheme(3)}>glassmorph</Button>
       </Stack>
       <Box display="flex" gap="20px" alignItems="center">
         {auth.user ? 

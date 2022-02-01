@@ -9,29 +9,15 @@
     margin-left: 10px;
   }
 
-  // .unread {
-  //   margin-left: 10px;
-  //   padding: 2px 4px;
-  //   border-radius: 10px;
-  // }
-
   &.unread {
     animation: blink 1s infinite;
   }
 
-  // @keyframes blink {
-  //   0% {
-  //     background-color: transparent;
-
-  //   }
-  //   50% {
-  //     background-color: transparent;
-  //   }
-  //   51% {
-  //     background-color: red;
-  //   }
-  //   100% {
-  //     background-color: red;
-  //   }
-  // }
+  &.glassmorph {
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.8px);
+    -webkit-backdrop-filter: blur(4.8px);
+    border: 1px solid rgba(255, 255, 255, 0.21);
+  }
 }
