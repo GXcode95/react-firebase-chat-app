@@ -9,6 +9,8 @@ import Avatar from 'components/Avatar'
 import { Box, Container, Typography } from '@mui/material'
 import Loading from 'components/Loading'
 import AvatarForm from 'components/AvatarForm'
+import ThemeSelector from 'components/ThemeSelector'
+
 const Profile = () => {
   const [avatar, setAvatar] = useState("")
   const [user, setUser] = useState()
@@ -75,6 +77,10 @@ const Profile = () => {
 
       </Box>
       <hr />
+      <Box className="f-center" flexDirection="column" gap={2} p={5}>
+        <Typography variant="h6">Choose a theme</Typography>
+        <ThemeSelector />
+      </Box>
     </Container>
   ) : <Loading />
 };
