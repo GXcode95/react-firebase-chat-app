@@ -8,19 +8,6 @@ const themeComponent = {
       },
     },
   }, 
-  // MuiCssBaseline: {
-  //   styleOverrrides: {
-
-  //     '@global': {
-  //       root: {
-  //         background: 'red',
-  //         // background: 'linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%)',
-  //         backgroundRepeat: "no-repeat",
-  //         backgroundAttachment: "fixed",
-  //       }
-  //     }
-  //   }
-  // }
 }
 const darkBasePalette = {
   mode: 'dark',
@@ -114,6 +101,7 @@ const hacker = createTheme({
       main: '#45bbbf',
     },
   },
+  bgAnimation: "Stars",
   components: themeComponent
 });
 const darkRed = "176, 48, 48"
@@ -138,7 +126,7 @@ const blood = createTheme({
       main: '#533669',
     },
   },
-  bgAnimation: "Stars",
+  bgAnimation: "Hearth",
   components: themeComponent
 });
 
@@ -155,7 +143,7 @@ const sunrise = createTheme({
       main: '#00ff59',
     },
     error: {
-      main: "#eb3434"
+      main: "#eb3434",
     },
     background: {
       paper: '#242424',

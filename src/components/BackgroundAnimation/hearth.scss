@@ -1,0 +1,51 @@
+$hearth-color: #f20044;
+
+.hearth-wrapper {
+  height: 140px;
+  width:140px;
+}
+
+.hearth {
+  height: 70px;
+  width: 70px;
+  background: $hearth-color;
+  position: relative;
+  transform: rotate(-45deg);
+  box-shadow: -10px 10px 90px $hearth-color;
+  animation: hearth-beat 0.6s linear infinite, hearth-move 6s linear infinite;
+
+  &:before {
+    content: '';
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    background: $hearth-color;
+    top: -50%;
+    border-radius: 50px;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    background: $hearth-color;
+    right: -50%;
+    border-radius: 50px;
+  }
+}
+
+@keyframes hearth-beat{
+  0%{
+    transform: rotate(-45deg) scale(1.27);
+  }
+  80%{
+    transform: rotate(-45deg) scale(1.20);
+  }
+  100%{
+    transform: rotate(-45deg) scale(0.8);
+  }
+}
+
+
+
+
