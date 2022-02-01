@@ -1,12 +1,13 @@
 import './style.scss'
-import React from 'react'
+import React, { useContext } from 'react'
 import UploadIcon from '@mui/icons-material/Upload';
-import { Box, Button, IconButton } from '@mui/material'
+import { Box, Button } from '@mui/material'
+import { ThemeContext } from 'context/theme';
 
 const ENTER_KEY = 13
 
 const MessageForm = ({ sendMessage, text, setText, setImage }) => {
-
+  const { theme } = useContext(ThemeContext)
   const handleKeydown = (e) => {
     if (e.keyCode === ENTER_KEY && !e.shiftKey) sendMessage()
     else console.log(e)
@@ -26,8 +27,7 @@ const MessageForm = ({ sendMessage, text, setText, setImage }) => {
           onChange={e => setImage(e.target.files[0])}
         />
       </Box>
-      <textarea
-        placeholder="Enter your message ..."
+      <textarea className={theme.glass && 'glassmorph'}
         value={text}
         onKeyDown={handleKeydown}
         onChange={e => setText((e.target.value))}
