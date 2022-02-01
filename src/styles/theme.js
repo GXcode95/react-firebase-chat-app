@@ -34,7 +34,7 @@ const darkBasePalette = {
     paper: '#242424',
     default: "#121212",
     gradient: "radial-gradient(circle, #232222, #1c1b1b, #151515, #0c0c0c, #000000)"
-  }
+  },
 }
 const glassBase = {
     glass: true,
@@ -89,6 +89,7 @@ const pinky = createTheme({
       main: '#aa39cc',
     },
   },
+  bgAnimation: "Stars",
   components: themeComponent
 });
 const darkGreen = "20, 156, 68"
@@ -137,6 +138,7 @@ const blood = createTheme({
       main: '#533669',
     },
   },
+  bgAnimation: "Stars",
   components: themeComponent
 });
 
@@ -177,13 +179,13 @@ const ocean = createTheme({
       gradient: "radial-gradient(circle, #15bc98, #00aebb, #009be4, #0080fb, #1254eb)",
     }
   },
+  bgAnimation: "Bubbles",
 });
 
 const lakers = createTheme({
   ...glassBase,
   palette: {
     ...glassBase.palette,
-
     messages: {
       main: "rgba(70, 7, 125, 0.72)",
       penpal: "rgba(201, 200, 8, 0.62)",
