@@ -195,6 +195,7 @@ const ocean = createTheme({
     }
   },
   bgAnimation: "Bubbles",
+  xavier: "bubbules"
 });
 
 const lakers = createTheme({

@@ -13,17 +13,21 @@ const BackgroundAnimation = () => {
   const [animation, setAnimation] = useState()
 
   useEffect(()=> {    
-    console.log(theme.bgAnimation)
+    if (theme.bgAnimation)
       setAnimation(animations[theme.bgAnimation])
-  }, [theme])
+  }, [])
 
   return (
-    <div>
-      {theme.bgAnimation.includes('trix') ? 
-        <Matrix gradientmode={theme.gradientMode} /> : animation
-      
-      }
-    </div>
+    <>
+    {theme.bgAnimation &&
+      <div>
+        {theme.bgAnimation.includes('trix') ? 
+          <Matrix gradientmode={theme.gradientMode} /> : animation
+
+        }
+      </div>
+    }   
+    </>
   )
 }
 export default BackgroundAnimation
