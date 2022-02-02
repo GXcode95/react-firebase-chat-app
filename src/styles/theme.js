@@ -117,7 +117,7 @@ const matrix = createTheme({
       main: "#4790c4"
     },
     messages: {
-      main: `rgba(${darkGreen}, 0.7)`,
+      main: `rgba(${darkGreen}, 0.5)`,
       penpal: "rgba(150,150,150, 0.3)"
     },
     success: {
