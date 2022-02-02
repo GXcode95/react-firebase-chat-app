@@ -1,9 +1,79 @@
 $hearth-color: #f20044;
 
+.hearth-grid {
+  position: absolute;
+  animation: go-and-back 10s infinite;
+  top: 120px;
+  left: 0px;
+  z-index: 0;
+  max-height: calc(100vh - 40px);
+  max-width: 150vw;
+  overflow-x: hidden;
+}
 .hearth-wrapper {
   height: 140px;
   width:140px;
+  transform: translateX(50px);
+  opacity: 0;
+  $animation-params: fade-in-out 10s linear infinite;
+  &.n1 {
+    animation: $animation-params
+  }
+  &.n2 {
+    animation: 1s $animation-params
+  }
+  &.n3 {
+    animation: 2s $animation-params
+  }
+  &.n4 {
+    animation: 3s $animation-params
+  }
+  &.n5 {
+    animation: 4s $animation-params
+  }
+  &.n6 {
+    animation: 5s $animation-params
+  }
+  &.n7 {
+    animation: 6s $animation-params
+  }
+  &.n8 {
+    animation: 7s $animation-params
+  }
+  &.n9 {
+    animation: 8s $animation-params
+  }
+  &.n10 {
+    animation: 9s $animation-params
+  }
+  &.n11 {
+    animation: 10$animation-params
+  }
+  &.n12 {
+    animation: 11s $animation-params
+  }
+  &.n13 {
+    animation: 12s $animation-params
+  }
+  &.n14 {
+    animation: 13s $animation-params
+  }
+  &.n15 {
+    animation: 14s $animation-params
+  }
 }
+@keyframes go-and-back {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: calc(100vh - 70px - 60%);
+  }
+  100% {
+    left: 0;
+  }
+}
+
 
 .hearth {
   height: 70px;
@@ -32,8 +102,10 @@ $hearth-color: #f20044;
     right: -50%;
     border-radius: 50px;
   }
-}
 
+  
+  
+}
 @keyframes hearth-beat{
   0%{
     transform: rotate(-45deg) scale(1.27);
@@ -46,6 +118,18 @@ $hearth-color: #f20044;
   }
 }
 
-
-
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
