@@ -8,19 +8,6 @@ const themeComponent = {
       },
     },
   }, 
-  // MuiCssBaseline: {
-  //   styleOverrrides: {
-
-  //     '@global': {
-  //       root: {
-  //         background: 'red',
-  //         // background: 'linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%)',
-  //         backgroundRepeat: "no-repeat",
-  //         backgroundAttachment: "fixed",
-  //       }
-  //     }
-  //   }
-  // }
 }
 const darkBasePalette = {
   mode: 'dark',
@@ -163,6 +150,7 @@ const sunrise = createTheme({
       gradient: "linear-gradient(to right top, #da8e54, #e7755f, #e95c78, #db4e9a, #b551be)",
     }
   },
+  bgAnimation: 'Bokeh'
 });
 
 const ocean = createTheme({
