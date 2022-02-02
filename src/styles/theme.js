@@ -126,6 +126,7 @@ const hacker = createTheme({
       main: '#45bbbf',
     },
   },
+  bgAnimation: 'Matrix',
   components: themeComponent
 });
 const blood = createTheme({
