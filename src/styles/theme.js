@@ -57,20 +57,46 @@ const light = createTheme({
 });
 
 // ------ DARK -------
+const darkGreen = "20, 156, 68"
+const darkRed = "176, 48, 48"
 const darkPink = "245, 118, 160"
-const pinky = createTheme({
+const darkBlue = "28, 74, 166"
+
+// const pinky = createTheme({
+//   palette: {
+//     ...darkBasePalette,
+//     primary: {
+//       main: `rgb(${darkPink})`,
+//       alt: `rgba(${darkPink}, 0.7)`
+//     },
+//     secondary: {
+//       main: "#8320c9"
+//     },
+//     messages: {
+//       main: `rgba(${darkPink}, 0.7)`,
+//       penpal: "rgba(131, 32, 201, 0.7)"
+//     },
+//     info: {
+//       main: '#aa39cc',
+//     },
+//   },
+//   bgAnimation: "Stars",
+//   components: themeComponent
+// });
+
+const spaceship = createTheme({
   palette: {
     ...darkBasePalette,
     primary: {
-      main: `rgb(${darkPink})`,
-      alt: `rgba(${darkPink}, 0.7)`
+      main: `rgb(${darkBlue})`,
+      alt: `rgba(${darkBlue}, 0.7)`
     },
     secondary: {
       main: "#8320c9"
     },
     messages: {
-      main: `rgba(${darkPink}, 0.7)`,
-      penpal: "rgba(131, 32, 201, 0.7)"
+      main: `rgba(${darkBlue}, 0.7)`,
+      penpal: "rgba(49, 214, 85, 0.7)"
     },
     info: {
       main: '#aa39cc',
@@ -79,7 +105,6 @@ const pinky = createTheme({
   bgAnimation: "Stars",
   components: themeComponent
 });
-const darkGreen = "20, 156, 68"
 const hacker = createTheme({
   palette: {
     ...darkBasePalette,
@@ -103,7 +128,6 @@ const hacker = createTheme({
   },
   components: themeComponent
 });
-const darkRed = "176, 48, 48"
 const blood = createTheme({
   palette: {
     ...darkBasePalette,
@@ -205,9 +229,9 @@ export const themes = {
     theme: lakers,
     name: "lakers",
   },
-  pinky: {
-    theme: pinky,
-    name: "pinky",
+  spaceship: {
+    theme: spaceship,
+    name: "spaceship",
   },
   blood: {
     theme: blood,
