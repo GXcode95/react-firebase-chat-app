@@ -19,8 +19,8 @@ const BackgroundAnimation = () => {
 
   return (
     <div>
-      {theme.bgAnimation === 'Matrix' ? 
-        <Matrix />: animation
+      {theme.bgAnimation === 'Matrix' || theme.bgAnimation === 'Rainbowtrix' ? 
+        <Matrix gradientmode={theme.gradientMode} /> : animation
       
       }
     </div>

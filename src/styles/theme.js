@@ -57,7 +57,7 @@ const light = createTheme({
 });
 
 // ------ DARK -------
-const darkGreen = "20, 156, 68"
+const darkGreen = "0, 255, 0"
 const darkRed = "176, 48, 48"
 const darkPink = "245, 118, 160"
 const darkBlue = "28, 74, 166"
@@ -105,7 +105,8 @@ const spaceship = createTheme({
   bgAnimation: "Stars",
   components: themeComponent
 });
-const hacker = createTheme({
+const matrix = createTheme({
+  glass:true,
   palette: {
     ...darkBasePalette,
     primary: {
@@ -117,7 +118,7 @@ const hacker = createTheme({
     },
     messages: {
       main: `rgba(${darkGreen}, 0.7)`,
-      penpal: "rgba(71, 144, 196, 0.7)"
+      penpal: "rgba(150,150,150, 0.3)"
     },
     success: {
       main: '#2c81a3',
@@ -129,6 +130,7 @@ const hacker = createTheme({
   bgAnimation: 'Matrix',
   components: themeComponent
 });
+
 const blood = createTheme({
   palette: {
     ...darkBasePalette,
@@ -211,6 +213,11 @@ const lakers = createTheme({
   },
 });
 
+const rainbowtrix = createTheme({
+  ...matrix,
+  bgAnimation: 'Rainbowtrix',
+  gradientMode: "true"
+});
 
 //* ***** EXPORT ****** *//
 export const themes = {
@@ -238,8 +245,12 @@ export const themes = {
     theme: blood,
     name: "blood",
   },
-  hacker: {
-    theme: hacker,
-    name: "hacker",
+  matrix: {
+    theme: matrix,
+    name: "matrix",
+  },
+  rainbowtrix: {
+    theme: rainbowtrix,
+    name: "rainbowtrix",
   },
 }
