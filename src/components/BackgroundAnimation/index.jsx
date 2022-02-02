@@ -4,19 +4,25 @@ import './style.scss'
 import Stars from './Stars'
 import Bubbles from './Bubbles'
 import Hearth from './Hearth'
-const animations = { Stars, Bubbles, Hearth }
+import Bokeh from './Bokeh'
+import Matrix from './Matrix'
+const animations = { Stars, Bubbles, Bokeh, Matrix, Hearth }
 
 const BackgroundAnimation = () => {
   const { theme } = useContext(ThemeContext)
   const [animation, setAnimation] = useState()
 
   useEffect(()=> {    
-    setAnimation(animations[theme.bgAnimation])
+    console.log(theme.bgAnimation)
+      setAnimation(animations[theme.bgAnimation])
   }, [theme])
 
   return (
-    <div className="wrapper">
-      {animation}
+    <div>
+      {theme.bgAnimation.includes('trix') ? 
+        <Matrix gradientmode={theme.gradientMode} /> : animation
+      
+      }
     </div>
   )
 }

@@ -5,8 +5,8 @@
   margin: 0;
 }
 body {
-  width: 100vw;
-  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
   overflow: hidden;
 }
 input {
@@ -14,4 +14,11 @@ input {
 }
 a {
   color: inherit;
+}
+
+canvas {
+  /* background: blue; */
+  position: absolute;
+  top: 0;
+  left: 0;
 }
