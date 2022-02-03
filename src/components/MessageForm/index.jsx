@@ -8,7 +8,7 @@ const ENTER_KEY = 13
 
 const MessageForm = ({ sendMessage, text, setText, setImage }) => {
   const { theme } = useContext(ThemeContext)
-  const textareaStyle = theme.bgAnimation.includes('trix') ? {color: 'rgb(0,255,0)'} : {}
+  const textareaStyle = theme.bgAnimation?.includes('trix') ? {color: 'rgb(0,255,0)'} : {}
   const handleKeydown = (e) => {
     if (e.keyCode === ENTER_KEY && !e.shiftKey) sendMessage()
     else console.log(e)

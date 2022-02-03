@@ -112,11 +112,11 @@ const Canvas = props => {
     }
     render(0)
     // Handle Responsive
-    window.addEventListener('resize', () => {
-	    canvas.width = window.innerWidth
-	    canvas.height = window.innerHeight
-    	effect.resize(canvas.width, canvas.height)
-    })
+    // window.addEventListener('resize', () => {
+	  //   canvas.width = window.innerWidth
+	  //   canvas.height = window.innerHeight
+    // 	effect.resize(canvas.width, canvas.height)
+    // })
     
     
     return () => {

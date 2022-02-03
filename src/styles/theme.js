@@ -131,7 +131,7 @@ const matrix = createTheme({
   components: themeComponent
 });
 
-const blood = createTheme({
+const hearth = createTheme({
   palette: {
     ...darkBasePalette,
     primary: {
@@ -242,9 +242,9 @@ export const themes = {
     theme: spaceship,
     name: "spaceship",
   },
-  blood: {
-    theme: blood,
-    name: "blood",
+  hearth: {
+    theme: hearth,
+    name: "hearth",
   },
   matrix: {
     theme: matrix,

@@ -10,6 +10,7 @@ import { Box, Container, Typography } from '@mui/material'
 import Loading from 'components/Loading'
 import AvatarForm from 'components/AvatarForm'
 import ThemeSelector from 'components/ThemeSelector'
+import UserInfo from 'components/UserInfo'
 
 const Profile = () => {
   const [avatar, setAvatar] = useState("")
@@ -63,19 +64,7 @@ const Profile = () => {
 
   return user ? (
     <Container className="Profile">
-      <Box display='flex' alignItems="center">
-
-        <Box className="avatar-container" >
-          <Avatar img={user.avatar} size="100px" />
-          <AvatarForm setAvatar={setAvatar} />
-        </Box>
-        
-        <Box flex="1" textAlign="center" pt={4}>
-          <Typography variant="h3" pb={4}>{user.name}</Typography>
-          <Typography variant="h5" component={"p"} pb={4}>{user.email}</Typography>
-        </Box>
-
-      </Box>
+      <UserInfo user={user} setAvatar={setAvatar} />
       <hr />
       <Box className="f-center" flexDirection="column" gap={2} p={5}>
         <Typography variant="h6">Choose a theme</Typography>
